@@ -49,7 +49,7 @@ const timeline = [
 
 export const Curriculum = () => {
   return (
-    <section id="curriculo" className="py-24 bg-secondary">
+    <section id="curriculo" className="py-24 bg-graphite">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Header */}
@@ -69,7 +69,7 @@ export const Curriculum = () => {
             {achievements.map((achievement, index) => (
               <Card 
                 key={index}
-                className="bg-gradient-to-br from-graphite to-secondary border-border hover:border-accent transition-all duration-300 glow-effect"
+                className="bg-secondary border-border hover:border-accent transition-all duration-300"
               >
                 <CardContent className="p-6 text-center space-y-2">
                   <achievement.icon className="w-10 h-10 text-accent mx-auto" />
@@ -84,14 +84,14 @@ export const Curriculum = () => {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left Column - Image Placeholder & Key Points */}
             <div className="space-y-6">
-              <div className="aspect-[3/4] bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl border border-border flex items-center justify-center">
+              <div className="aspect-[3/4] bg-secondary/50 rounded-2xl border border-border flex items-center justify-center">
                 <div className="text-center space-y-2">
                   <GraduationCap className="w-20 h-20 text-accent mx-auto" />
                   <p className="text-muted-foreground text-sm px-4">Foto profissional do Augusto Maule</p>
                 </div>
               </div>
 
-              <Card className="bg-gradient-to-br from-secondary to-graphite border-accent/30">
+              <Card className="bg-secondary border-primary/20">
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-start gap-3">
                     <Target className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
@@ -127,7 +127,7 @@ export const Curriculum = () => {
               </div>
 
               {/* Specializations */}
-              <Card className="bg-gradient-to-br from-graphite to-secondary border-border">
+              <Card className="bg-secondary border-border">
                 <CardContent className="p-6 space-y-3">
                   <h4 className="text-foreground flex items-center gap-2">
                     <Award className="w-5 h-5 text-accent" />
@@ -158,7 +158,7 @@ export const Curriculum = () => {
           </div>
 
           {/* Quote */}
-          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-accent/30">
+          <Card className="bg-secondary/30 border-border/50">
             <CardContent className="p-8 md:p-12 text-center">
               <blockquote className="space-y-4">
                 <p className="text-xl md:text-2xl text-foreground font-medium italic">
