@@ -1,5 +1,6 @@
 import { Award, Briefcase, GraduationCap, Target, TrendingUp, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import augustoMaulePhoto from "@/assets/augusto-maule.jpg";
 
 const achievements = [
   {
@@ -84,11 +85,12 @@ export const Curriculum = () => {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left Column - Image Placeholder & Key Points */}
             <div className="space-y-6">
-              <div className="aspect-[3/4] bg-secondary/50 rounded-2xl border border-border flex items-center justify-center">
-                <div className="text-center space-y-2">
-                  <GraduationCap className="w-20 h-20 text-accent mx-auto" />
-                  <p className="text-muted-foreground text-sm px-4">Foto profissional do Augusto Maule</p>
-                </div>
+              <div className="aspect-[3/4] rounded-2xl border border-border overflow-hidden">
+                <img 
+                  src={augustoMaulePhoto} 
+                  alt="Augusto Maule - Fundador da Metodologia Maule, instrutor de drones profissional"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               <Card className="bg-secondary border-primary/20">
