@@ -56,7 +56,7 @@ export const Curriculum = () => {
           {/* Header */}
           <div className="text-center space-y-4">
             <h2 className="text-foreground">Augusto Maule</h2>
-            <p className="text-xl text-accent font-semibold">
+            <p className="text-xl text-foreground font-semibold">
               Fundador da Metodologia Maule | Formação Técnica em Drones
             </p>
             <p className="text-lg text-steel max-w-3xl mx-auto">
@@ -70,10 +70,10 @@ export const Curriculum = () => {
             {achievements.map((achievement, index) => (
               <Card 
                 key={index}
-                className="bg-industrial border-border hover:border-accent transition-all duration-300"
+                className="bg-industrial border-border hover:border-foreground/50 transition-all duration-300"
               >
                 <CardContent className="p-6 text-center space-y-2">
-                  <achievement.icon className="w-10 h-10 text-accent mx-auto" />
+                  <achievement.icon className="w-10 h-10 text-foreground mx-auto" />
                   <div className="text-3xl font-black text-foreground">{achievement.number}</div>
                   <div className="text-sm text-steel">{achievement.label}</div>
                 </CardContent>
@@ -93,10 +93,10 @@ export const Curriculum = () => {
                 />
               </div>
 
-              <Card className="bg-industrial border-accent/20">
+              <Card className="bg-industrial border-border">
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-start gap-3">
-                    <Target className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                    <Target className="w-6 h-6 text-foreground flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="text-foreground mb-1">Missão</h4>
                       <p className="text-sm text-steel">
@@ -115,10 +115,10 @@ export const Curriculum = () => {
               
               <div className="space-y-6">
                 {timeline.map((item, index) => (
-                  <div key={index} className="relative pl-8 pb-8 border-l-2 border-accent/30 last:pb-0">
-                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent border-4 border-industrial" />
+                  <div key={index} className="relative pl-8 pb-8 border-l-2 border-steel/50 last:pb-0">
+                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-foreground border-4 border-industrial" />
                     <div className="space-y-2">
-                      <div className="text-accent font-semibold text-sm">{item.year}</div>
+                      <div className="text-steel font-semibold text-sm">{item.year}</div>
                       <h4 className="text-foreground">{item.title}</h4>
                       <p className="text-steel text-sm leading-relaxed">
                         {item.description}
@@ -132,7 +132,7 @@ export const Curriculum = () => {
               <Card className="bg-industrial border-border">
                 <CardContent className="p-6 space-y-3">
                   <h4 className="text-foreground flex items-center gap-2">
-                    <Award className="w-5 h-5 text-accent" />
+                    <Award className="w-5 h-5 text-foreground" />
                     Áreas de Especialização
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -148,7 +148,7 @@ export const Curriculum = () => {
                     ].map((spec, index) => (
                       <span 
                         key={index}
-                        className="text-xs bg-accent/10 text-accent border border-accent/30 px-3 py-1 rounded-full"
+                        className="text-xs bg-industrial text-foreground border border-border px-3 py-1 rounded-full"
                       >
                         {spec}
                       </span>
@@ -167,7 +167,7 @@ export const Curriculum = () => {
                   "Desmistificar as mentiras que contam para os outros. Eu sou o cara que arriscou 
                   tudo para mudar de carreira e construir a melhor metodologia de ensino de drones do Brasil."
                 </p>
-                <cite className="text-accent font-semibold not-italic">— Augusto Maule</cite>
+                <cite className="text-foreground font-bold not-italic">— Augusto Maule</cite>
               </blockquote>
             </CardContent>
           </Card>

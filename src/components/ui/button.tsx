@@ -18,7 +18,7 @@ const buttonVariants = cva(
         // Maule Custom Variants
         hero: "bg-primary text-primary-foreground hover:bg-accent hover:shadow-[0_0_20px_hsl(var(--accent)/0.5)] font-cta text-lg tracking-wide",
         cta: "bg-energy text-energy-foreground hover:bg-energy/90 hover:shadow-[0_0_20px_hsl(var(--energy)/0.4)] font-bold",
-        technical: "bg-graphite text-accent border border-accent hover:shadow-[0_0_20px_hsl(var(--accent)/0.5)] hover:bg-graphite/80",
+        technical: "bg-graphite text-foreground border border-foreground/50 hover:border-foreground hover:bg-industrial",
         outlineLight: "border border-foreground bg-transparent text-foreground hover:bg-foreground hover:text-background",
       },
       size: {

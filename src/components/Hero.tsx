@@ -27,7 +27,7 @@ export const Hero = () => {
           </h1>
           
           <div className="space-y-4">
-            <p className="text-2xl md:text-4xl font-heading font-semibold text-accent">
+            <p className="text-2xl md:text-4xl font-heading font-semibold text-foreground">
               Metodologia Maule
             </p>
             <p className="text-lg md:text-xl text-steel max-w-3xl mx-auto">
@@ -49,8 +49,8 @@ export const Hero = () => {
       
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-accent rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-accent rounded-full" />
+        <div className="w-6 h-10 border-2 border-steel rounded-full flex items-start justify-center p-2">
+          <div className="w-1 h-3 bg-steel rounded-full" />
         </div>
       </div>
     </section>
