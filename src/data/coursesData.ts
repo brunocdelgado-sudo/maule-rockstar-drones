@@ -2,11 +2,13 @@ import {
   Plane, 
   Target,
   Sprout, 
-  Zap,
-  ThermometerSun,
-  Building,
-  Ruler,
+  Map,
+  Scan,
   Shield,
+  GraduationCap,
+  Briefcase,
+  Rocket,
+  RefreshCw,
   LucideIcon
 } from "lucide-react";
 
@@ -21,90 +23,83 @@ export interface CourseData {
   icon: LucideIcon;
   title: string;
   shortDescription: string;
-  level: string;
+  level: "Operação" | "Core Técnico" | "Especialização" | "Mentoria";
+  tier: 1 | 2 | 3 | 4;
   duration: string;
   format: string;
   fullDescription: string;
+  antiPromises?: string[];
   targetAudience: string[];
   modules: CourseModule[];
   skills: string[];
   prerequisites: string[];
   certification: string;
   differentials: string[];
+  isHidden?: boolean;
 }
 
 export const coursesData: CourseData[] = [
+  // ========== NÍVEL 1 - OPERAÇÃO ==========
   {
     id: "operacoes-intermediario",
     slug: "operacoes-intermediario",
     icon: Plane,
     title: "Operações Intermediário",
-    shortDescription: "Domine os fundamentos da operação de drones com segurança e precisão.",
-    level: "Intermediário",
-    duration: "40 horas",
-    format: "Presencial + Prático",
-    fullDescription: "Curso completo para quem deseja dominar as operações básicas e intermediárias de drones, com foco em segurança operacional, legislação vigente e técnicas de pilotagem profissional.",
+    shortDescription: "2 dias intensivos. Turmas de 4-8 alunos. Um dia inteiro dedicado exclusivamente à prática.",
+    level: "Operação",
+    tier: 1,
+    duration: "2 dias intensivos",
+    format: "Presencial • Turmas 4-8 alunos",
+    fullDescription: "A Metodologia Maule não forma curiosos. Forma profissionais que querem dominar o jogo. Este curso é estruturado para quem quer sair operando de verdade — com segurança, técnica e autonomia. Dois dias intensivos: o primeiro focado em sistemas, configurações e operação; o segundo, um dia inteiro dedicado exclusivamente à prática de voo.",
+    antiPromises: [
+      "Não é curso básico. É formação de elite.",
+      "Não é aula teórica infinita. É prática intensiva.",
+      "Não formamos amadores. Formamos operadores."
+    ],
     targetAudience: [
-      "Iniciantes que querem entrar no mercado de drones",
-      "Profissionais buscando certificação",
-      "Entusiastas que querem operar legalmente",
+      "Quem quer entrar no mercado de drones com seriedade",
+      "Profissionais que precisam operar com segurança e técnica",
+      "Quem já voa mas quer dominar os fundamentos de verdade"
     ],
     modules: [
       {
-        title: "Módulo 1 - Fundamentos e Legislação",
+        title: "Dia 1 - Sistemas, Configurações e Operação",
         topics: [
-          "Regulamentação ANAC e DECEA",
-          "Tipos de aeronaves e classificações",
-          "Espaço aéreo brasileiro",
-          "Documentação e responsabilidades"
+          "Sistemas embarcados e componentes críticos",
+          "Configurações avançadas de voo",
+          "Modos de operação e failsafes",
+          "Planejamento de missão profissional",
+          "Análise de riscos operacionais"
         ]
       },
       {
-        title: "Módulo 2 - Sistemas e Tecnologia",
+        title: "Dia 2 - Operação Prática Intensiva",
         topics: [
-          "Componentes do drone",
-          "Sistemas de navegação GPS",
-          "Baterias e autonomia",
-          "Sensores e câmeras"
-        ]
-      },
-      {
-        title: "Módulo 3 - Operações Práticas",
-        topics: [
-          "Pré-voo e checklist",
-          "Decolagem e pouso",
-          "Manobras básicas e avançadas",
-          "Operações em diferentes condições"
-        ]
-      },
-      {
-        title: "Módulo 4 - Segurança Operacional",
-        topics: [
-          "Gerenciamento de riscos",
+          "Manobras essenciais e avançadas",
+          "Operação em diferentes cenários",
           "Procedimentos de emergência",
-          "Análise de acidentes",
-          "Manutenção preventiva"
+          "Exercícios práticos cronometrados",
+          "Avaliação de proficiência"
         ]
       }
     ],
     skills: [
-      "Operar drones com segurança",
-      "Cumprir regulamentações vigentes",
-      "Realizar planejamento de voo",
-      "Executar manobras profissionais",
-      "Gerenciar riscos operacionais"
+      "Domínio completo dos sistemas do drone",
+      "Operação segura em múltiplos cenários",
+      "Capacidade de planejamento de missão",
+      "Gerenciamento de riscos operacionais",
+      "Autonomia para operações comerciais"
     ],
     prerequisites: [
       "Maior de 18 anos",
-      "Ensino médio completo",
-      "Aptidão física e mental"
+      "Vontade real de aprender (curiosos não servem)"
     ],
-    certification: "Certificado de Operações Intermediário reconhecido pela ANAC",
+    certification: "Certificado Metodologia Maule com código de rastreio único — verificável e reconhecido pelo mercado. Não é papel. É credencial rastreável.",
     differentials: [
-      "Aulas práticas intensivas",
-      "Instrutores certificados",
-      "Equipamentos profissionais",
-      "Suporte pós-curso"
+      "Turmas extremamente reduzidas (4-8 alunos)",
+      "Um dia inteiro dedicado exclusivamente à prática",
+      "Instrutor com mais de 8.000 alunos formados",
+      "Metodologia desenvolvida por quem vive o que ensina"
     ]
   },
   {
@@ -112,497 +107,677 @@ export const coursesData: CourseData[] = [
     slug: "operacoes-profissional",
     icon: Target,
     title: "Operações Profissional",
-    shortDescription: "Torne-se um piloto profissional certificado e pronto para o mercado.",
-    level: "Avançado",
-    duration: "80 horas",
-    format: "Presencial + Prático Intensivo",
-    fullDescription: "Formação completa para pilotos profissionais, com certificação ANAC, capacitando para operações comerciais complexas em múltiplas áreas de aplicação.",
+    shortDescription: "3 dias intensivos. Inclui 100% do Intermediário + dia extra de formação teórica profunda.",
+    level: "Operação",
+    tier: 1,
+    duration: "3 dias intensivos",
+    format: "Presencial • Turmas 4-8 alunos",
+    fullDescription: "A formação completa para quem não quer atalhos. Três dias que condensam tudo o que você precisa para operar profissionalmente: história, componentes, aerodinâmica, legislação, sistemas e um dia inteiro de prática. Quem sai daqui não é mais um no mercado — é um operador de elite.",
+    antiPromises: [
+      "Não é curso para quem quer só um certificado",
+      "Não é formação genérica. É preparação de elite.",
+      "Não prometemos emprego. Prometemos competência."
+    ],
     targetAudience: [
-      "Pilotos intermediários buscando profissionalização",
-      "Profissionais querendo atuar comercialmente",
-      "Empresários do setor de drones",
+      "Quem quer a formação completa sem dividir em módulos",
+      "Profissionais que querem atuar comercialmente",
+      "Empresários que precisam dominar a operação"
     ],
     modules: [
       {
-        title: "Módulo 1 - Operações Avançadas",
+        title: "Dia 1 - Formação Teórica Profunda",
         topics: [
-          "Planejamento de missões complexas",
-          "Operações BVLOS (Beyond Visual Line of Sight)",
-          "Voos noturnos e em condições adversas",
-          "Múltiplas aeronaves simultâneas"
+          "História da aviação e dos drones",
+          "Componentes e arquitetura de sistemas",
+          "Aerodinâmica aplicada",
+          "Legislação ANAC e DECEA",
+          "Responsabilidades do operador"
         ]
       },
       {
-        title: "Módulo 2 - Aplicações Comerciais",
+        title: "Dia 2 - Sistemas, Configurações e Operação",
         topics: [
-          "Fotografia e videografia aérea profissional",
-          "Inspeções técnicas",
-          "Mapeamento e topografia",
-          "Operações agrícolas"
+          "Sistemas embarcados e componentes críticos",
+          "Configurações avançadas de voo",
+          "Modos de operação e failsafes",
+          "Planejamento de missão profissional",
+          "Análise de riscos operacionais"
         ]
       },
       {
-        title: "Módulo 3 - Gestão e Negócios",
+        title: "Dia 3 - Operação Prática Intensiva",
         topics: [
-          "Precificação de serviços",
-          "Contratos e responsabilidades",
-          "Marketing para operadores",
-          "Gestão de projetos"
-        ]
-      },
-      {
-        title: "Módulo 4 - Certificação ANAC",
-        topics: [
-          "Preparação para prova teórica",
-          "Prova prática ANAC",
-          "Documentação e processos",
-          "Renovação e manutenção"
+          "Manobras essenciais e avançadas",
+          "Operação em cenários complexos",
+          "Procedimentos de emergência reais",
+          "Exercícios práticos cronometrados",
+          "Avaliação de proficiência final"
         ]
       }
     ],
     skills: [
-      "Certificação ANAC completa",
-      "Operações comerciais avançadas",
+      "Conhecimento profundo teórico e prático",
+      "Certificação profissional reconhecida",
+      "Capacidade de operar comercialmente",
       "Gestão de projetos com drones",
-      "Múltiplas aplicações profissionais"
+      "Base sólida para qualquer especialização"
     ],
     prerequisites: [
-      "Curso de Operações Intermediário ou experiência equivalente",
       "Maior de 18 anos",
-      "Ensino médio completo"
+      "Comprometimento com formação séria"
     ],
-    certification: "Certificação Profissional ANAC + Certificado Metodologia Maule",
+    certification: "Certificação Profissional Metodologia Maule — código de rastreio único, verificável online. A credencial que o mercado reconhece.",
     differentials: [
-      "Preparação completa para ANAC",
-      "Casos reais de mercado",
-      "Networking profissional",
-      "Mentoria pós-curso"
+      "Formação mais completa do mercado em 3 dias",
+      "100% do curso Intermediário incluído",
+      "Preparação para qualquer especialização",
+      "Metodologia de quem formou +8.000 alunos"
+    ]
+  },
+
+  // ========== NÍVEL 2 - CORE TÉCNICO ==========
+  {
+    id: "aerofotogrametria",
+    slug: "aerofotogrametria",
+    icon: Map,
+    title: "Aerofotogrametria e Sensoriamento Remoto",
+    shortDescription: "O curso estruturante. Portal de entrada para todas as especializações técnicas.",
+    level: "Core Técnico",
+    tier: 2,
+    duration: "2 dias intensivos",
+    format: "Presencial • Turmas 4-8 alunos",
+    fullDescription: "Este é o curso que abre as portas. A aerofotogrametria é a base técnica de todas as especializações que envolvem mapeamento, processamento e entrega de produtos. Aqui você aprende os fundamentos científicos, o planejamento, o voo e o processamento em softwares profissionais. Sem esse conhecimento, você não avança. Com ele, você domina qualquer especialização.",
+    antiPromises: [
+      "Não é curso introdutório. É formação estruturante.",
+      "Não é teoria vazia. É fundamento aplicado.",
+      "Sem isso, você não avança nas especializações."
+    ],
+    targetAudience: [
+      "Quem quer seguir para especializações técnicas",
+      "Operadores que precisam entregar produtos profissionais",
+      "Profissionais que querem dominar processamento de dados"
+    ],
+    modules: [
+      {
+        title: "Dia 1 - Fundamentos e Planejamento",
+        topics: [
+          "Fundamentos científicos da fotogrametria",
+          "Sensoriamento remoto aplicado",
+          "Planejamento de missão aerofotogramétrica",
+          "GSD, sobreposição e parâmetros técnicos",
+          "Execução de voo fotogramétrico"
+        ]
+      },
+      {
+        title: "Dia 2 - Processamento Profissional",
+        topics: [
+          "Processamento em Agisoft Metashape",
+          "Processamento em Pix4D",
+          "Processamento em DJI Terra",
+          "Geração de ortomosaicos e modelos",
+          "Entrega de produtos finais"
+        ]
+      }
+    ],
+    skills: [
+      "Domínio dos fundamentos de fotogrametria",
+      "Planejamento e execução de voos técnicos",
+      "Processamento em múltiplos softwares",
+      "Geração de produtos profissionais",
+      "Base para qualquer especialização"
+    ],
+    prerequisites: [
+      "Curso de Operações (Intermediário ou Profissional)",
+      "Notebook com configuração adequada"
+    ],
+    certification: "Certificado Metodologia Maule em Aerofotogrametria — código rastreável. Entrega inclui: dados brutos + projetos + produtos finais via drive.",
+    differentials: [
+      "Curso estruturante para todas as especializações",
+      "Processamento em 3 softwares diferentes",
+      "Entrega de projeto completo via drive",
+      "Base científica sólida aplicada"
+    ]
+  },
+
+  // ========== NÍVEL 3 - ESPECIALIZAÇÕES ==========
+  {
+    id: "topografia-drones",
+    slug: "topografia-drones",
+    icon: Map,
+    title: "Topografia com Drones",
+    shortDescription: "Conceitos topográficos + processamento + entrega final em QGIS. Produtos prontos para engenharia.",
+    level: "Especialização",
+    tier: 3,
+    duration: "2 dias intensivos",
+    format: "Presencial • Turmas 4-8 alunos",
+    fullDescription: "A especialização para quem quer entregar produtos topográficos de verdade. Aqui você aprende os conceitos fundamentais de topografia, processamento em Metashape e Pix4D, e finalização em QGIS. Produtos prontos para engenharia, mineração e construção civil.",
+    antiPromises: [
+      "Não é curso de fotogrametria repetida. É topografia aplicada.",
+      "Não ensinamos só a voar. Ensinamos a entregar.",
+      "Quem sai daqui entrega laudo, não só imagem."
+    ],
+    targetAudience: [
+      "Topógrafos e agrimensores querendo agregar drones",
+      "Engenheiros civis e profissionais de geoprocessamento",
+      "Operadores buscando nicho de alta demanda"
+    ],
+    modules: [
+      {
+        title: "Módulo 1 - Fundamentos Topográficos",
+        topics: [
+          "Conceitos fundamentais de topografia",
+          "Geodésia e sistemas de coordenadas",
+          "Precisão vs acurácia em levantamentos",
+          "Normas técnicas aplicáveis"
+        ]
+      },
+      {
+        title: "Módulo 2 - Processamento e Entrega",
+        topics: [
+          "Processamento em Metashape",
+          "Processamento em Pix4D",
+          "Finalização e análise em QGIS",
+          "Geração de MDT, MDS e curvas de nível",
+          "Relatórios técnicos para engenharia"
+        ]
+      }
+    ],
+    skills: [
+      "Levantamentos topográficos com drone",
+      "Processamento em múltiplos softwares",
+      "Finalização profissional em QGIS",
+      "Entrega de produtos para engenharia"
+    ],
+    prerequisites: [
+      "Curso de Aerofotogrametria (obrigatório)",
+      "Conhecimento básico de topografia (desejável)"
+    ],
+    certification: "Certificado de Especialização em Topografia com Drones — código rastreável.",
+    differentials: [
+      "Foco em entrega real para clientes",
+      "Finalização em QGIS inclusa",
+      "Cases de engenharia e mineração",
+      "Produtos prontos para uso comercial"
     ]
   },
   {
-    id: "mapeamento-agricola",
-    slug: "mapeamento-agricola",
+    id: "agricultura-precisao",
+    slug: "agricultura-precisao",
     icon: Sprout,
-    title: "Mapeamento Agrícola",
-    shortDescription: "Especialização em agricultura de precisão e análise de plantações.",
+    title: "Agricultura de Precisão",
+    shortDescription: "Mapeamentos voltados ao agro + processamento + apoio à tomada de decisão agronômica.",
     level: "Especialização",
-    duration: "60 horas",
-    format: "Presencial + Campo",
-    fullDescription: "Curso especializado em agricultura de precisão, utilizando drones para mapeamento, análise NDVI, identificação de pragas e otimização de produtividade agrícola.",
+    tier: 3,
+    duration: "2 dias intensivos",
+    format: "Presencial • Turmas 4-8 alunos",
+    fullDescription: "A especialização para o agronegócio. Aqui você aprende a fazer mapeamentos que geram valor real para produtores: análise de saúde de plantações, identificação de problemas, geração de mapas de prescrição e apoio à tomada de decisão agronômica. Não é só foto aérea — é inteligência para o campo.",
+    antiPromises: [
+      "Não é curso de foto bonita de fazenda",
+      "Não ensinamos a vender para agricultor sem entregar valor",
+      "Quem sai daqui entende de agro, não só de drone"
+    ],
     targetAudience: [
       "Agrônomos e técnicos agrícolas",
-      "Pilotos querendo atuar no agro",
-      "Produtores rurais inovadores",
+      "Operadores querendo atuar no agronegócio",
+      "Produtores rurais que querem usar drones na propriedade"
     ],
     modules: [
       {
-        title: "Módulo 1 - Agricultura de Precisão",
+        title: "Módulo 1 - Fundamentos da Agricultura de Precisão",
         topics: [
           "Conceitos de agricultura 4.0",
-          "Índices de vegetação (NDVI, NDRE)",
-          "Análise de saúde das plantas",
-          "Detecção de pragas e doenças"
+          "Índices de vegetação (NDVI, NDRE, GNDVI)",
+          "Interpretação de saúde das plantas",
+          "Sensores multispectrais e térmicos"
         ]
       },
       {
-        title: "Módulo 2 - Equipamentos e Sensores",
-        topics: [
-          "Câmeras multispectrais",
-          "Sensores térmicos",
-          "GPS RTK para agricultura",
-          "Configuração de equipamentos"
-        ]
-      },
-      {
-        title: "Módulo 3 - Planejamento e Execução",
+        title: "Módulo 2 - Mapeamento e Decisão",
         topics: [
           "Planejamento de missões agrícolas",
-          "Sobreposição de imagens",
-          "Voos automatizados",
-          "Coleta de dados em campo"
-        ]
-      },
-      {
-        title: "Módulo 4 - Análise e Relatórios",
-        topics: [
-          "Processamento de imagens",
-          "Softwares de análise agrícola",
+          "Processamento de imagens multispectrais",
           "Geração de mapas de prescrição",
-          "Relatórios técnicos"
+          "Relatórios para tomada de decisão"
         ]
       }
     ],
     skills: [
-      "Mapeamento agrícola profissional",
+      "Mapeamentos agrícolas profissionais",
       "Análise de índices de vegetação",
-      "Uso de sensores multispectrais",
-      "Geração de mapas de prescrição"
+      "Geração de mapas de prescrição",
+      "Apoio à decisão agronômica"
     ],
     prerequisites: [
-      "Curso de Operações Intermediário ou equivalente",
+      "Curso de Aerofotogrametria (obrigatório)",
       "Conhecimento básico de agronomia (desejável)"
     ],
-    certification: "Certificado de Especialização em Mapeamento Agrícola",
+    certification: "Certificado de Especialização em Agricultura de Precisão — código rastreável.",
     differentials: [
-      "Aulas práticas em fazendas reais",
-      "Uso de equipamentos multispectrais",
-      "Software profissional incluso",
-      "Cases reais de produtividade"
+      "Foco em valor para o produtor",
+      "Cases reais do agronegócio brasileiro",
+      "Entrega de produtos práticos",
+      "Metodologia validada no campo"
     ]
   },
   {
-    id: "operacao-pulverizacao",
-    slug: "operacao-pulverizacao",
-    icon: Zap,
-    title: "Operação de Pulverização",
-    shortDescription: "Técnicas avançadas de pulverização aérea para agronegócio.",
+    id: "inspecoes-drones",
+    slug: "inspecoes-drones",
+    icon: Scan,
+    title: "Inspeções com Drones",
+    shortDescription: "Energia, telecom, infraestrutura crítica. Processamento e relatórios profissionais.",
     level: "Especialização",
-    duration: "60 horas",
-    format: "Presencial + Campo Intensivo",
-    fullDescription: "Especialização em pulverização aérea com drones, cobrindo técnicas operacionais, regulamentação específica, calibração de equipamentos e aplicação de defensivos agrícolas.",
+    tier: 3,
+    duration: "2 dias intensivos",
+    format: "Presencial • Turmas 4-8 alunos",
+    fullDescription: "A especialização para quem quer atuar em inspeções de infraestrutura crítica. Torres de energia, telecomunicações, linhas de transmissão, painéis solares, edificações. Aqui você aprende a capturar, processar e entregar relatórios que empresas de verdade precisam.",
+    antiPromises: [
+      "Não é curso de fotografia aérea",
+      "Não ensinamos só a voar perto de torre",
+      "Quem sai daqui entrega laudo técnico, não só vídeo"
+    ],
     targetAudience: [
-      "Pilotos de drone certificados",
-      "Operadores de máquinas agrícolas",
-      "Empreendedores do agronegócio",
-    ],
-    modules: [
-      {
-        title: "Módulo 1 - Fundamentos da Pulverização",
-        topics: [
-          "Princípios de aplicação aérea",
-          "Tipos de pulverizadores",
-          "Defensivos agrícolas",
-          "Regulamentação MAPA e ANAC"
-        ]
-      },
-      {
-        title: "Módulo 2 - Equipamentos e Calibração",
-        topics: [
-          "Drones pulverizadores",
-          "Sistemas de tanque e bicos",
-          "Calibração de vazão",
-          "Manutenção preventiva"
-        ]
-      },
-      {
-        title: "Módulo 3 - Técnicas Operacionais",
-        topics: [
-          "Planejamento de aplicação",
-          "Faixas de aplicação",
-          "Altura e velocidade ideais",
-          "Condições meteorológicas"
-        ]
-      },
-      {
-        title: "Módulo 4 - Segurança e Qualidade",
-        topics: [
-          "EPIs e segurança química",
-          "Deriva e eficiência",
-          "Controle de qualidade",
-          "Documentação de aplicação"
-        ]
-      }
-    ],
-    skills: [
-      "Operação de drones pulverizadores",
-      "Calibração de equipamentos",
-      "Aplicação eficiente de defensivos",
-      "Gestão de segurança operacional"
-    ],
-    prerequisites: [
-      "Curso de Operações Intermediário ou certificação equivalente",
-      "Conhecimento básico de agronomia"
-    ],
-    certification: "Certificado de Especialização em Pulverização Aérea",
-    differentials: [
-      "Prática intensiva em campo",
-      "Drones pulverizadores reais",
-      "Consultoria pós-curso",
-      "Parcerias com fabricantes"
-    ]
-  },
-  {
-    id: "inspecao-termografica",
-    slug: "inspecao-termografica",
-    icon: ThermometerSun,
-    title: "Inspeção Termográfica",
-    shortDescription: "Utilize câmeras térmicas para inspeções técnicas especializadas.",
-    level: "Especialização",
-    duration: "50 horas",
-    format: "Presencial + Prático",
-    fullDescription: "Curso de especialização em termografia com drones, capacitando para inspeções em painéis solares, linhas de transmissão, edificações e equipamentos industriais.",
-    targetAudience: [
-      "Engenheiros e técnicos",
-      "Pilotos buscando especialização",
-      "Profissionais de manutenção",
-    ],
-    modules: [
-      {
-        title: "Módulo 1 - Fundamentos de Termografia",
-        topics: [
-          "Princípios da radiação térmica",
-          "Câmeras térmicas e especificações",
-          "Emissividade e refletividade",
-          "Interpretação de termogramas"
-        ]
-      },
-      {
-        title: "Módulo 2 - Aplicações Industriais",
-        topics: [
-          "Inspeção de painéis solares",
-          "Linhas de transmissão",
-          "Subestações elétricas",
-          "Equipamentos industriais"
-        ]
-      },
-      {
-        title: "Módulo 3 - Inspeções Prediais",
-        topics: [
-          "Infiltrações e umidade",
-          "Pontes térmicas",
-          "Sistemas HVAC",
-          "Telhados e coberturas"
-        ]
-      },
-      {
-        title: "Módulo 4 - Análise e Relatórios",
-        topics: [
-          "Software de análise térmica",
-          "Geração de relatórios técnicos",
-          "Normas e padrões",
-          "Casos práticos"
-        ]
-      }
-    ],
-    skills: [
-      "Operação de câmeras térmicas",
-      "Inspeções termográficas profissionais",
-      "Análise de termogramas",
-      "Elaboração de laudos técnicos"
-    ],
-    prerequisites: [
-      "Curso de Operações Intermediário",
-      "Conhecimento técnico básico (engenharia/manutenção desejável)"
-    ],
-    certification: "Certificado de Especialização em Inspeção Termográfica",
-    differentials: [
-      "Câmeras térmicas profissionais",
-      "Cases reais de inspeção",
-      "Software de análise incluso",
-      "Networking com empresas do setor"
-    ]
-  },
-  {
-    id: "inspecao-estrutural",
-    slug: "inspecao-estrutural",
-    icon: Building,
-    title: "Inspeção Estrutural",
-    shortDescription: "Inspeção de edificações, torres e infraestruturas com precisão.",
-    level: "Especialização",
-    duration: "50 horas",
-    format: "Presencial + Campo",
-    fullDescription: "Especialização em inspeções estruturais com drones, abrangendo edificações, pontes, torres, barragens e outras infraestruturas críticas.",
-    targetAudience: [
-      "Engenheiros civis",
-      "Arquitetos",
-      "Profissionais de inspeção predial",
+      "Engenheiros e técnicos de manutenção",
+      "Operadores buscando nicho de inspeções",
+      "Profissionais do setor de energia e telecom"
     ],
     modules: [
       {
         title: "Módulo 1 - Fundamentos de Inspeção",
         topics: [
-          "Tipos de estruturas e patologias",
-          "Normas técnicas de inspeção",
-          "Planejamento de inspeções",
-          "Segurança em altura"
+          "Tipos de inspeções com drones",
+          "Equipamentos e sensores específicos",
+          "Planejamento de missões de inspeção",
+          "Segurança em operações próximas a estruturas"
         ]
       },
       {
-        title: "Módulo 2 - Técnicas de Captura",
+        title: "Módulo 2 - Aplicações e Entregas",
         topics: [
-          "Fotografia técnica",
-          "Vídeos de inspeção",
-          "Fotogrametria estrutural",
-          "Zoom óptico e digital"
-        ]
-      },
-      {
-        title: "Módulo 3 - Tipos de Inspeção",
-        topics: [
-          "Torres e antenas",
-          "Pontes e viadutos",
-          "Fachadas de edificações",
-          "Barragens e reservatórios"
-        ]
-      },
-      {
-        title: "Módulo 4 - Análise e Laudos",
-        topics: [
-          "Identificação de patologias",
-          "Documentação fotográfica",
-          "Relatórios técnicos",
-          "Software de inspeção"
+          "Inspeção de torres e linhas de transmissão",
+          "Inspeção de painéis solares (térmica)",
+          "Inspeção de edificações e fachadas",
+          "Processamento e geração de relatórios",
+          "Templates profissionais de laudo"
         ]
       }
     ],
     skills: [
-      "Inspeções estruturais profissionais",
-      "Fotografia técnica especializada",
-      "Identificação de patologias",
-      "Elaboração de laudos de inspeção"
+      "Inspeções de infraestrutura crítica",
+      "Operação próxima a estruturas",
+      "Processamento de dados de inspeção",
+      "Elaboração de laudos técnicos"
     ],
     prerequisites: [
-      "Curso de Operações Intermediário",
-      "Conhecimento em engenharia civil (desejável)"
+      "Curso de Aerofotogrametria (recomendado)",
+      "Conhecimento técnico básico de engenharia (desejável)"
     ],
-    certification: "Certificado de Especialização em Inspeção Estrutural",
+    certification: "Certificado de Especialização em Inspeções com Drones — código rastreável.",
     differentials: [
+      "Cases reais de energia e telecom",
+      "Templates de laudo profissional",
       "Prática em estruturas reais",
-      "Drones com zoom potente",
-      "Parcerias com construtoras",
-      "Templates de relatórios"
+      "Foco em entrega comercial"
     ]
   },
   {
-    id: "mapeamento-topografico",
-    slug: "mapeamento-topografico",
-    icon: Ruler,
-    title: "Mapeamento Topográfico",
-    shortDescription: "Gere mapas e modelos 3D precisos para engenharia e construção.",
+    id: "lidar-drones",
+    slug: "lidar-drones",
+    icon: Scan,
+    title: "LiDAR com Drones",
+    shortDescription: "Fundamentos + processamento de dados reais. Divulgação controlada.",
     level: "Especialização",
-    duration: "60 horas",
-    format: "Presencial + Campo",
-    fullDescription: "Curso completo de topografia com drones, incluindo levantamento aerofotogramétrico, geração de ortomosaicos, MDT, MDS e curvas de nível para projetos de engenharia.",
+    tier: 3,
+    duration: "2 dias intensivos",
+    format: "Presencial • Turmas 4-8 alunos",
+    fullDescription: "O curso para quem quer entender LiDAR de verdade. Fundamentos da tecnologia, processamento de dados reais, aplicações práticas. Este não é um curso de operação de drone LiDAR — é um curso de entendimento e processamento de dados LiDAR para quem quer atuar nesse mercado de alto valor.",
+    antiPromises: [
+      "Não é curso de pilotagem de drone LiDAR",
+      "Não prometemos que você vai sair operando equipamento de R$500k",
+      "Quem sai daqui entende LiDAR — não só ouviu falar"
+    ],
     targetAudience: [
-      "Topógrafos e agrimensores",
-      "Engenheiros civis",
-      "Profissionais de geoprocessamento",
+      "Profissionais querendo entrar no mercado de LiDAR",
+      "Engenheiros florestais e topógrafos",
+      "Operadores buscando especialização de alto valor"
     ],
     modules: [
       {
-        title: "Módulo 1 - Fundamentos de Topografia",
+        title: "Módulo 1 - Fundamentos do LiDAR",
         topics: [
-          "Conceitos de topografia",
-          "Geodésia e sistemas de coordenadas",
-          "Precisão e acurácia",
-          "Normas técnicas"
+          "Princípios da tecnologia LiDAR",
+          "Tipos de sensores e aplicações",
+          "Diferenças entre LiDAR terrestre e aéreo",
+          "Limitações e potenciais"
         ]
       },
       {
-        title: "Módulo 2 - Fotogrametria com Drones",
+        title: "Módulo 2 - Processamento de Dados",
         topics: [
-          "Planejamento de voo fotogramétrico",
-          "GSD e sobreposição",
-          "Pontos de controle (GCP)",
-          "GPS RTK e PPK"
-        ]
-      },
-      {
-        title: "Módulo 3 - Processamento de Dados",
-        topics: [
-          "Software de fotogrametria",
-          "Geração de ortomosaicos",
-          "Modelos digitais (MDT/MDS)",
-          "Nuvem de pontos"
-        ]
-      },
-      {
-        title: "Módulo 4 - Produtos Cartográficos",
-        topics: [
-          "Curvas de nível",
-          "Cálculo de volumes",
-          "Plantas topográficas",
-          "Integração com CAD/GIS"
+          "Softwares de processamento LiDAR",
+          "Classificação de nuvens de pontos",
+          "Geração de produtos derivados",
+          "Análise e interpretação de dados"
         ]
       }
     ],
     skills: [
-      "Levantamento topográfico com drones",
-      "Processamento fotogramétrico",
-      "Geração de produtos cartográficos",
-      "Cálculo de volumes e áreas"
+      "Entendimento profundo de LiDAR",
+      "Processamento de nuvens de pontos",
+      "Análise de dados LiDAR",
+      "Geração de produtos derivados"
     ],
     prerequisites: [
-      "Curso de Operações Intermediário",
-      "Noções de topografia (desejável)"
+      "Curso de Aerofotogrametria (obrigatório)",
+      "Conhecimento de geoprocessamento (desejável)"
     ],
-    certification: "Certificado de Especialização em Mapeamento Topográfico",
+    certification: "Certificado de Especialização em LiDAR — código rastreável.",
     differentials: [
-      "Software profissional (Pix4D/Agisoft)",
-      "GPS RTK em campo",
-      "Projetos reais de engenharia",
-      "Certificado com valor de mercado"
-    ]
+      "Dados reais para processamento",
+      "Foco em entendimento profundo",
+      "Sem promessas irrealistas",
+      "Preparação real para o mercado"
+    ],
+    isHidden: true // Divulgação controlada
   },
   {
-    id: "seguranca-drones",
-    slug: "seguranca-drones",
+    id: "seguranca-publica-privada",
+    slug: "seguranca-publica-privada",
     icon: Shield,
-    title: "Segurança com Drones",
-    shortDescription: "Operações de vigilância e monitoramento de segurança.",
+    title: "Segurança Pública e Privada",
+    shortDescription: "Uso tático do drone. Aquisição de informações de valor. Penetração e leitura de territórios.",
     level: "Especialização",
-    duration: "40 horas",
-    format: "Presencial + Simulações",
-    fullDescription: "Especialização em operações de segurança com drones, cobrindo vigilância, monitoramento perimetral, suporte a operações táticas e uso em segurança pública e privada.",
+    tier: 3,
+    duration: "2 dias intensivos",
+    format: "Presencial • Turmas 4-8 alunos",
+    fullDescription: "A especialização para quem quer usar o drone como ferramenta tática. Não é sobre voar — é sobre adquirir informações de valor, penetrar e ler territórios, apoiar tomada de decisão crítica. Para profissionais de segurança pública e privada que entendem que o drone é uma ferramenta de inteligência.",
+    antiPromises: [
+      "Não é curso de vigilância amadora",
+      "Não ensinamos a usar drone como brinquedo",
+      "Quem sai daqui pensa como operador tático"
+    ],
     targetAudience: [
-      "Profissionais de segurança",
-      "Militares e policiais",
-      "Empresas de vigilância",
+      "Profissionais de segurança pública",
+      "Operadores de segurança privada",
+      "Gestores de segurança empresarial"
     ],
     modules: [
       {
-        title: "Módulo 1 - Segurança e Vigilância",
+        title: "Módulo 1 - Fundamentos Táticos",
         topics: [
-          "Conceitos de segurança aérea",
-          "Aplicações em segurança pública",
-          "Segurança privada e patrimonial",
-          "Aspectos legais e éticos"
+          "O drone como ferramenta de inteligência",
+          "Planejamento de operações táticas",
+          "Leitura e penetração de territórios",
+          "Aquisição de informações de valor"
         ]
       },
       {
-        title: "Módulo 2 - Equipamentos Táticos",
+        title: "Módulo 2 - Aplicações Práticas",
         topics: [
-          "Drones para segurança",
-          "Câmeras térmicas noturnas",
-          "Sistemas de transmissão ao vivo",
-          "Iluminação tática"
-        ]
-      },
-      {
-        title: "Módulo 3 - Operações Práticas",
-        topics: [
-          "Patrulhamento aéreo",
-          "Monitoramento de eventos",
-          "Busca e salvamento",
-          "Operações noturnas"
-        ]
-      },
-      {
-        title: "Módulo 4 - Integração Operacional",
-        topics: [
-          "Centro de operações",
-          "Comunicação tática",
-          "Protocolos de segurança",
-          "Análise de inteligência"
+          "Operações de vigilância",
+          "Apoio à tomada de decisão crítica",
+          "Integração com equipes de segurança",
+          "Protocolos operacionais"
         ]
       }
     ],
     skills: [
-      "Operações de vigilância aérea",
-      "Monitoramento em tempo real",
-      "Voos noturnos táticos",
-      "Integração com equipes de segurança"
+      "Pensamento tático com drones",
+      "Aquisição de inteligência",
+      "Planejamento de operações",
+      "Apoio à decisão crítica"
     ],
     prerequisites: [
-      "Curso de Operações Intermediário",
+      "Curso de Operações (Intermediário ou Profissional)",
       "Experiência em segurança (desejável)"
     ],
-    certification: "Certificado de Especialização em Segurança com Drones",
+    certification: "Certificado de Especialização em Segurança com Drones — código rastreável.",
     differentials: [
-      "Simulações de operações reais",
-      "Equipamentos táticos profissionais",
-      "Instrutores com experiência militar",
-      "Networking com setor de segurança"
+      "Foco em pensamento tático",
+      "Cases de operações reais",
+      "Metodologia de inteligência",
+      "Instrutor com experiência no setor"
+    ]
+  },
+
+  // ========== NÍVEL 4 - MENTORIAS ==========
+  {
+    id: "mentoria-instrutores",
+    slug: "mentoria-instrutores",
+    icon: GraduationCap,
+    title: "Mentoria para Instrutores",
+    shortDescription: "Formação para quem quer ensinar. Metodologia, didática e posicionamento.",
+    level: "Mentoria",
+    tier: 4,
+    duration: "Programa personalizado",
+    format: "Híbrido • Acompanhamento individual",
+    fullDescription: "A mentoria para quem quer se tornar instrutor de drones. Não basta saber operar — você precisa saber ensinar. Aqui você aprende metodologia de ensino, didática aplicada, posicionamento de mercado e como estruturar seus próprios cursos. Formação de instrutores por quem formou mais de 8.000 alunos.",
+    antiPromises: [
+      "Não é curso rápido de instrutor",
+      "Não formamos quem não tem base sólida",
+      "Quem entra aqui quer ensinar de verdade"
+    ],
+    targetAudience: [
+      "Operadores experientes querendo ensinar",
+      "Profissionais buscando nova carreira",
+      "Quem quer multiplicar conhecimento"
+    ],
+    modules: [
+      {
+        title: "Fase 1 - Fundamentos da Instrução",
+        topics: [
+          "Metodologia de ensino para adultos",
+          "Didática aplicada a drones",
+          "Estruturação de conteúdo",
+          "Gestão de sala de aula"
+        ]
+      },
+      {
+        title: "Fase 2 - Posicionamento e Mercado",
+        topics: [
+          "Construção de autoridade",
+          "Precificação de cursos",
+          "Marketing para instrutores",
+          "Parcerias e networking"
+        ]
+      }
+    ],
+    skills: [
+      "Metodologia de ensino profissional",
+      "Didática aplicada",
+      "Posicionamento de mercado",
+      "Gestão de carreira como instrutor"
+    ],
+    prerequisites: [
+      "Formação completa em operações",
+      "Experiência comprovada no mercado",
+      "Aprovação em entrevista"
+    ],
+    certification: "Certificação como Instrutor Metodologia Maule — credencial de autoridade.",
+    differentials: [
+      "Acompanhamento individual",
+      "Metodologia validada em +8.000 alunos",
+      "Posicionamento de mercado incluso",
+      "Rede de instrutores Maule"
+    ]
+  },
+  {
+    id: "mentoria-empresarios",
+    slug: "mentoria-empresarios",
+    icon: Briefcase,
+    title: "Mentoria para Empresários",
+    shortDescription: "Integração de drones ao negócio. Estratégia, operação e escala.",
+    level: "Mentoria",
+    tier: 4,
+    duration: "Programa personalizado",
+    format: "Híbrido • Acompanhamento individual",
+    fullDescription: "A mentoria para empresários que querem integrar drones ao seu negócio. Não é sobre aprender a voar — é sobre entender como essa tecnologia pode gerar valor, reduzir custos e criar novas linhas de receita. Estratégia, operação e escala para quem pensa como empresário.",
+    antiPromises: [
+      "Não é curso de pilotagem para executivos",
+      "Não prometemos resultados sem trabalho",
+      "Quem entra aqui quer resultado, não hobby"
+    ],
+    targetAudience: [
+      "Empresários querendo agregar drones ao negócio",
+      "Gestores de operações industriais",
+      "Empreendedores do setor de drones"
+    ],
+    modules: [
+      {
+        title: "Fase 1 - Estratégia e Oportunidades",
+        topics: [
+          "Análise de oportunidades no seu setor",
+          "Modelagem de negócio com drones",
+          "ROI e viabilidade de operação",
+          "Estrutura operacional necessária"
+        ]
+      },
+      {
+        title: "Fase 2 - Implementação e Escala",
+        topics: [
+          "Contratação e formação de equipe",
+          "Processos e padrões operacionais",
+          "Gestão de frota e equipamentos",
+          "Estratégias de escala"
+        ]
+      }
+    ],
+    skills: [
+      "Visão estratégica de drones no negócio",
+      "Gestão de operações com drones",
+      "Modelagem financeira",
+      "Escala de operações"
+    ],
+    prerequisites: [
+      "Ter um negócio ativo",
+      "Clareza sobre objetivos",
+      "Aprovação em entrevista"
+    ],
+    certification: "Certificação de conclusão de mentoria empresarial.",
+    differentials: [
+      "Foco em resultado de negócio",
+      "Acompanhamento estratégico",
+      "Cases de implementação real",
+      "Networking com outros empresários"
+    ]
+  },
+  {
+    id: "mentoria-pilotos",
+    slug: "mentoria-pilotos",
+    icon: Rocket,
+    title: "Mentoria para Pilotos",
+    shortDescription: "Transformação de piloto em operador de elite. Técnica, mercado e posicionamento.",
+    level: "Mentoria",
+    tier: 4,
+    duration: "Programa personalizado",
+    format: "Híbrido • Acompanhamento individual",
+    fullDescription: "A mentoria para pilotos que querem se tornar operadores de elite. Não basta saber voar — você precisa dominar técnica, entender o mercado e se posicionar corretamente. Acompanhamento individual para quem quer ser referência, não mais um operador.",
+    antiPromises: [
+      "Não é curso de pilotagem avançada",
+      "Não formamos pilotos medianos",
+      "Quem entra aqui quer ser elite"
+    ],
+    targetAudience: [
+      "Pilotos querendo evoluir para elite",
+      "Operadores buscando diferenciação",
+      "Profissionais querendo se destacar"
+    ],
+    modules: [
+      {
+        title: "Fase 1 - Excelência Técnica",
+        topics: [
+          "Diagnóstico de nível atual",
+          "Desenvolvimento de habilidades avançadas",
+          "Domínio de múltiplas plataformas",
+          "Situações críticas e tomada de decisão"
+        ]
+      },
+      {
+        title: "Fase 2 - Posicionamento de Elite",
+        topics: [
+          "Construção de portfólio",
+          "Precificação premium",
+          "Marketing pessoal",
+          "Networking estratégico"
+        ]
+      }
+    ],
+    skills: [
+      "Operação de nível elite",
+      "Posicionamento de mercado",
+      "Precificação premium",
+      "Diferenciação competitiva"
+    ],
+    prerequisites: [
+      "Formação completa em operações",
+      "Experiência comprovada",
+      "Aprovação em entrevista"
+    ],
+    certification: "Certificação de Operador Elite Metodologia Maule.",
+    differentials: [
+      "Acompanhamento 1:1",
+      "Diagnóstico personalizado",
+      "Foco em resultado mensurável",
+      "Acesso à rede de elite"
+    ]
+  },
+  {
+    id: "mentoria-transicao-carreira",
+    slug: "mentoria-transicao-carreira",
+    icon: RefreshCw,
+    title: "Mentoria Transição de Carreira",
+    shortDescription: "Acompanhamento completo para quem quer mudar de carreira para drones.",
+    level: "Mentoria",
+    tier: 4,
+    duration: "Programa personalizado",
+    format: "Híbrido • Acompanhamento individual",
+    fullDescription: "A mentoria para quem quer mudar de carreira. Eu fiz isso — larguei tudo para trabalhar com drones. Sei o que funciona e o que não funciona. Acompanhamento completo: formação técnica, posicionamento de mercado, primeiros clientes e consolidação. Para quem está disposto a arriscar de verdade.",
+    antiPromises: [
+      "Não é promessa de dinheiro fácil",
+      "Não formamos quem não está disposto a trabalhar",
+      "Quem entra aqui sabe que vai ter que se dedicar"
+    ],
+    targetAudience: [
+      "Profissionais insatisfeitos querendo mudar",
+      "Quem já decidiu que quer trabalhar com drones",
+      "Pessoas dispostas a investir em nova carreira"
+    ],
+    modules: [
+      {
+        title: "Fase 1 - Fundação",
+        topics: [
+          "Diagnóstico de perfil e objetivos",
+          "Trilha de formação personalizada",
+          "Desenvolvimento de competências",
+          "Construção de base técnica"
+        ]
+      },
+      {
+        title: "Fase 2 - Mercado",
+        topics: [
+          "Posicionamento inicial",
+          "Primeiros clientes",
+          "Precificação e negociação",
+          "Consolidação da nova carreira"
+        ]
+      }
+    ],
+    skills: [
+      "Base técnica sólida",
+      "Entrada no mercado",
+      "Construção de carteira de clientes",
+      "Sustentabilidade da nova carreira"
+    ],
+    prerequisites: [
+      "Decisão firme de mudança de carreira",
+      "Disponibilidade para formação",
+      "Aprovação em entrevista"
+    ],
+    certification: "Certificação de conclusão de programa de transição.",
+    differentials: [
+      "Experiência real de transição de carreira",
+      "Acompanhamento de ponta a ponta",
+      "Trilha personalizada",
+      "Suporte até consolidação"
     ]
   }
 ];

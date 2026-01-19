@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { coursesData } from "@/data/coursesData";
-import { Award, Calendar, CheckCircle2, Clock, Target, Users } from "lucide-react";
+import { Award, Calendar, CheckCircle2, Clock, Target, Users, XCircle } from "lucide-react";
 
 const OperacoesIntermediario = () => {
   const course = coursesData.find(c => c.slug === "operacoes-intermediario")!;
@@ -22,7 +22,7 @@ const OperacoesIntermediario = () => {
         <div className="absolute inset-0 bg-[url('/hero-drone.jpg')] bg-cover bg-center opacity-10" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <span className="inline-block text-sm font-semibold text-accent border border-accent px-4 py-2 rounded-full">
+            <span className="inline-block text-sm font-semibold text-foreground border border-foreground/50 px-4 py-2 rounded-full">
               {course.level}
             </span>
             <h1 className="text-foreground">{course.title}</h1>
@@ -31,16 +31,16 @@ const OperacoesIntermediario = () => {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
               <div className="flex items-center gap-2 text-foreground">
-                <Clock className="w-5 h-5 text-accent" />
+                <Clock className="w-5 h-5 text-foreground" />
                 <span>{course.duration}</span>
               </div>
               <div className="flex items-center gap-2 text-foreground">
-                <Users className="w-5 h-5 text-accent" />
+                <Users className="w-5 h-5 text-foreground" />
                 <span>{course.format}</span>
               </div>
               <div className="flex items-center gap-2 text-foreground">
-                <Award className="w-5 h-5 text-accent" />
-                <span>Certificado Incluso</span>
+                <Award className="w-5 h-5 text-foreground" />
+                <span>Certificado Rastreável</span>
               </div>
             </div>
             <div className="pt-6">
@@ -51,6 +51,24 @@ const OperacoesIntermediario = () => {
           </div>
         </div>
       </section>
+
+      {/* Anti-Promises */}
+      {course.antiPromises && (
+        <section className="py-12 bg-industrial border-b border-border">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-wrap justify-center gap-6">
+                {course.antiPromises.map((anti, index) => (
+                  <div key={index} className="flex items-center gap-2 text-steel">
+                    <XCircle className="w-5 h-5 text-steel" />
+                    <span className="font-medium">{anti}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Full Description */}
       <section className="py-16 bg-graphite">
@@ -69,14 +87,14 @@ const OperacoesIntermediario = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-foreground mb-8 flex items-center gap-2">
-              <Target className="w-8 h-8 text-accent" />
+              <Target className="w-8 h-8 text-foreground" />
               Para Quem É Este Curso
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
               {course.targetAudience.map((audience, index) => (
                 <Card key={index} className="bg-gradient-to-br from-graphite to-secondary border-border">
                   <CardContent className="p-6 flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                    <CheckCircle2 className="w-5 h-5 text-foreground flex-shrink-0 mt-1" />
                     <p className="text-foreground">{audience}</p>
                   </CardContent>
                 </Card>
@@ -101,7 +119,7 @@ const OperacoesIntermediario = () => {
                     <ul className="space-y-2">
                       {module.topics.map((topic, topicIndex) => (
                         <li key={topicIndex} className="flex items-start gap-2 text-steel">
-                          <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
+                          <CheckCircle2 className="w-4 h-4 text-foreground flex-shrink-0 mt-1" />
                           <span>{topic}</span>
                         </li>
                       ))}
@@ -119,18 +137,18 @@ const OperacoesIntermediario = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
             {/* Skills */}
-            <Card className="bg-gradient-to-br from-graphite to-secondary border-accent/30">
+            <Card className="bg-gradient-to-br from-graphite to-secondary border-border">
               <CardHeader>
                 <CardTitle className="text-foreground flex items-center gap-2">
-                  <Award className="w-6 h-6 text-accent" />
-                  O Que Você Vai Aprender
+                  <Award className="w-6 h-6 text-foreground" />
+                  O Que Você Vai Dominar
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   {course.skills.map((skill, index) => (
                     <li key={index} className="flex items-start gap-2 text-steel">
-                      <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-foreground flex-shrink-0 mt-0.5" />
                       <span>{skill}</span>
                     </li>
                   ))}
@@ -142,7 +160,7 @@ const OperacoesIntermediario = () => {
             <Card className="bg-gradient-to-br from-graphite to-secondary border-border">
               <CardHeader>
                 <CardTitle className="text-foreground flex items-center gap-2">
-                  <Calendar className="w-6 h-6 text-accent" />
+                  <Calendar className="w-6 h-6 text-foreground" />
                   Pré-requisitos
                 </CardTitle>
               </CardHeader>
@@ -150,7 +168,7 @@ const OperacoesIntermediario = () => {
                 <ul className="space-y-3">
                   {course.prerequisites.map((prereq, index) => (
                     <li key={index} className="flex items-start gap-2 text-steel">
-                      <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-foreground flex-shrink-0 mt-0.5" />
                       <span>{prereq}</span>
                     </li>
                   ))}
@@ -168,10 +186,10 @@ const OperacoesIntermediario = () => {
             <h3 className="text-foreground mb-8 text-center">Diferenciais da Metodologia Maule</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {course.differentials.map((differential, index) => (
-                <Card key={index} className="bg-gradient-to-br from-primary/10 to-accent/10 border-accent/30 glow-effect">
+                <Card key={index} className="bg-industrial border-border glow-effect">
                   <CardContent className="p-6 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-6 h-6 text-accent" />
+                    <div className="w-12 h-12 rounded-full bg-foreground/10 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-6 h-6 text-foreground" />
                     </div>
                     <p className="text-foreground font-medium">{differential}</p>
                   </CardContent>
@@ -186,7 +204,7 @@ const OperacoesIntermediario = () => {
       <section className="py-16 bg-industrial">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <Award className="w-16 h-16 text-accent mx-auto" />
+            <Award className="w-16 h-16 text-foreground mx-auto" />
             <h3 className="text-foreground">Certificação</h3>
             <p className="text-lg text-steel">{course.certification}</p>
           </div>
@@ -197,9 +215,9 @@ const OperacoesIntermediario = () => {
       <section className="py-20 bg-graphite">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-foreground">Pronto Para Começar?</h2>
+            <h2 className="text-foreground">Pronto Para Entrar?</h2>
             <p className="text-xl text-steel">
-              Entre em contato e garanta sua vaga na próxima turma.
+              Quem entende, entra. Fale com a equipe e garanta sua vaga.
             </p>
             <Button variant="cta" size="xl" onClick={scrollToContact}>
               Fale com um Especialista
