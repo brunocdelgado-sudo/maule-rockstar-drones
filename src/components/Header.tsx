@@ -49,7 +49,7 @@ export const Header = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="text-2xl md:text-3xl font-heading font-black tracking-wider text-foreground hover:text-accent transition-colors"
+            className="text-2xl md:text-3xl font-heading font-black tracking-wider text-foreground hover:text-foreground/80 transition-colors"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             MAULE
@@ -64,7 +64,7 @@ export const Header = () => {
                 className="text-sm font-medium text-steel hover:text-foreground transition-colors relative group"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
             <Button 
@@ -78,7 +78,7 @@ export const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground hover:text-accent transition-colors"
+            className="md:hidden text-foreground hover:text-foreground/80 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >

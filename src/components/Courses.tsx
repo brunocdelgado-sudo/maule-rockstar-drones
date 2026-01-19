@@ -89,16 +89,16 @@ export const Courses = () => {
             {courses.map((course, index) => (
               <Card 
                 key={index}
-                className="bg-industrial border-border hover:border-accent transition-all duration-300 glow-effect group"
+                className="bg-industrial border-border hover:border-foreground/50 transition-all duration-300 glow-effect group"
               >
                 <CardHeader>
                   <div className="flex items-start justify-between">
-                    <course.icon className="w-12 h-12 text-accent group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-xs font-semibold text-accent border border-accent px-3 py-1 rounded-full">
+                    <course.icon className="w-12 h-12 text-foreground group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-xs font-semibold text-foreground border border-foreground/50 px-3 py-1 rounded-full">
                       {course.level}
                     </span>
                   </div>
-                  <CardTitle className="text-foreground group-hover:text-accent transition-colors">
+                  <CardTitle className="text-foreground">
                     {course.title}
                   </CardTitle>
                 </CardHeader>

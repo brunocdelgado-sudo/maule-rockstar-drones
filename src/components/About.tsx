@@ -41,9 +41,9 @@ export const About = () => {
             {stats.map((stat, index) => (
               <div 
                 key={index}
-                className="flex flex-col items-center space-y-3 p-6 rounded-2xl bg-industrial border border-border hover:border-accent transition-all duration-300 glow-effect"
+                className="flex flex-col items-center space-y-3 p-6 rounded-2xl bg-industrial border border-border hover:border-foreground/50 transition-all duration-300 glow-effect"
               >
-                <stat.icon className="w-10 h-10 text-accent" />
+                <stat.icon className="w-10 h-10 text-foreground" />
                 <div className="text-4xl font-black text-foreground font-heading">
                   {stat.value}
                 </div>
@@ -54,12 +54,12 @@ export const About = () => {
             ))}
           </div>
           
-          <div className="bg-industrial p-8 rounded-2xl border border-accent/20">
+          <div className="bg-industrial p-8 rounded-2xl border border-border">
             <blockquote className="text-xl italic text-foreground">
               "Eu sou o cara que arriscou tudo para mudar de carreira. Agora ensino outros a fazerem o mesmo 
               com a confiança e habilidade necessárias para se tornarem pilotos profissionais de drone."
             </blockquote>
-            <p className="mt-4 text-accent font-semibold">— Augusto Maule</p>
+            <p className="mt-4 text-foreground font-bold">— Augusto Maule</p>
           </div>
         </div>
       </div>
