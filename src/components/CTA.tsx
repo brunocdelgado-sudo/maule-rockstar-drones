@@ -4,10 +4,10 @@ import { ArrowRight, Mail, Phone } from "lucide-react";
 
 export const CTA = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-primary via-secondary to-graphite relative overflow-hidden">
+    <section id="contato" className="py-24 bg-industrial relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-energy/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -15,28 +15,28 @@ export const CTA = () => {
             Pronto para Decolar sua Carreira?
           </h2>
           
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-steel">
             Inscreva-se agora e receba informações sobre a próxima turma. 
             Vagas limitadas para garantir aprendizado personalizado.
           </p>
           
-          <div className="bg-card/10 backdrop-blur-sm border border-accent/20 rounded-2xl p-8 space-y-6">
+          <div className="bg-graphite/50 backdrop-blur-sm border border-accent/20 rounded-2xl p-8 space-y-6">
             <div className="grid md:grid-cols-2 gap-4">
               <Input 
                 placeholder="Seu nome completo"
-                className="bg-background/50 border-border focus:border-accent h-12"
+                className="bg-graphite border-border focus:border-accent h-12"
               />
               <Input 
                 type="email"
                 placeholder="Seu melhor e-mail"
-                className="bg-background/50 border-border focus:border-accent h-12"
+                className="bg-graphite border-border focus:border-accent h-12"
               />
             </div>
             
             <Input 
               type="tel"
               placeholder="WhatsApp com DDD"
-              className="bg-background/50 border-border focus:border-accent h-12"
+              className="bg-graphite border-border focus:border-accent h-12"
             />
             
             <Button variant="cta" size="xl" className="w-full group">
@@ -44,7 +44,7 @@ export const CTA = () => {
               <ArrowRight className="transition-transform group-hover:translate-x-1" />
             </Button>
             
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-steel">
               Ao se inscrever, você concorda em receber comunicações sobre nossos cursos.
             </p>
           </div>

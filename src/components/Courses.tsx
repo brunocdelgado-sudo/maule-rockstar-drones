@@ -9,7 +9,8 @@ import {
   Zap,
   Building,
   Ruler,
-  ThermometerSun
+  ThermometerSun,
+  Target
 } from "lucide-react";
 
 const courses = [
@@ -71,17 +72,14 @@ const courses = [
   },
 ];
 
-// Import Target for the icon
-import { Target } from "lucide-react";
-
 export const Courses = () => {
   return (
-    <section className="py-24 bg-graphite">
+    <section id="cursos" className="py-24 bg-graphite">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center space-y-4">
             <h2 className="text-foreground">Cursos & Especializações</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-steel max-w-3xl mx-auto">
               Escolha sua especialização e domine as técnicas mais avançadas de operação de drones 
               em diferentes áreas profissionais.
             </p>
@@ -91,7 +89,7 @@ export const Courses = () => {
             {courses.map((course, index) => (
               <Card 
                 key={index}
-                className="bg-gradient-to-br from-secondary to-graphite border-border hover:border-primary transition-all duration-300 glow-effect group"
+                className="bg-industrial border-border hover:border-accent transition-all duration-300 glow-effect group"
               >
                 <CardHeader>
                   <div className="flex items-start justify-between">
@@ -105,7 +103,7 @@ export const Courses = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-muted-foreground mb-4">
+                  <CardDescription className="text-steel mb-4">
                     {course.description}
                   </CardDescription>
                   <Link to={`/cursos/${course.slug}`}>

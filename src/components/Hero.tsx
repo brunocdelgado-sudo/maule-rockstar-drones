@@ -16,22 +16,22 @@ export const Hero = () => {
         }}
       />
       
-      {/* Gradient Overlay */}
+      {/* Gradient Overlay - Industrial Dark */}
       <div className="absolute inset-0 gradient-overlay" />
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-5xl mx-auto space-y-8">
           <h1 className="text-foreground animate-fade-in">
-            O ROCKSTAR DOS DRONES
+            FORMAÇÃO TÉCNICA EM DRONES
           </h1>
           
           <div className="space-y-4">
             <p className="text-2xl md:text-4xl font-heading font-semibold text-accent">
-              Aprenda com quem vive o que ensina.
+              Metodologia Maule
             </p>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              O melhor instrutor de drone do Brasil. Metodologia comprovada com centenas de alunos formados em operação profissional, mapeamento, inspeção e segurança.
+            <p className="text-lg md:text-xl text-steel max-w-3xl mx-auto">
+              O instrutor que forma pilotos de drone de verdade. Metodologia comprovada com centenas de alunos formados em operação profissional, mapeamento, inspeção e segurança.
             </p>
           </div>
           

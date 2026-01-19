@@ -8,95 +8,109 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Maule Design System - Light Mode Base */
-    --background: 0 0% 91.4%;
-    --foreground: 0 0% 5.1%;
+    /* Nova Identidade Visual Maule - Industrial Técnico */
+    /* Cores base - modo claro (mantém consistência mas prioriza dark) */
+    --background: 240 4% 96%;
+    --foreground: 240 4% 6%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 5.1%;
+    --card: 220 9% 96%;
+    --card-foreground: 240 4% 6%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5.1%;
+    --popover: 220 9% 96%;
+    --popover-foreground: 240 4% 6%;
 
-    /* Primary: Azul Metálico #007ACC */
-    --primary: 205 100% 40%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary: Grafite Industrial #1C1F24 */
+    --primary: 216 12% 12%;
+    --primary-foreground: 220 9% 96%;
 
-    /* Secondary: Azul Profundo #001E36 */
-    --secondary: 205 100% 10.6%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary: Preto Profundo Técnico #0E0E10 */
+    --secondary: 240 4% 6%;
+    --secondary-foreground: 220 9% 96%;
 
-    /* Muted: Cinza Nevoa #E9E9E9 */
-    --muted: 0 0% 91.4%;
-    --muted-foreground: 0 0% 45.1%;
+    /* Muted: Cinza Aço Frio #8A8F98 */
+    --muted: 217 5% 75%;
+    --muted-foreground: 217 7% 46%;
 
-    /* Accent: Ciano Turquesa #00C6B8 */
-    --accent: 176 100% 38.8%;
-    --accent-foreground: 0 0% 5.1%;
+    /* Accent: Laranja Aço Aquecido #C44900 */
+    --accent: 22 100% 38%;
+    --accent-foreground: 220 9% 96%;
 
-    /* Destructive/CTA: Laranja Energia #FF6B00 */
-    --destructive: 25 100% 50%;
-    --destructive-foreground: 0 0% 100%;
+    /* Destructive - mesmo do accent para CTAs */
+    --destructive: 22 100% 38%;
+    --destructive-foreground: 220 9% 96%;
 
-    --border: 0 0% 72%;
-    --input: 0 0% 72%;
-    --ring: 205 100% 40%;
+    --border: 217 10% 84%;
+    --input: 217 10% 84%;
+    --ring: 22 100% 38%;
 
     --radius: 1rem;
 
-    /* Custom Maule Colors */
-    --graphite: 0 0% 5.1%;
-    --graphite-foreground: 0 0% 100%;
+    /* Custom Maule Industrial Colors */
+    --graphite: 240 4% 6%;
+    --graphite-foreground: 220 9% 96%;
     
-    --turquoise: 176 100% 38.8%;
-    --turquoise-foreground: 0 0% 5.1%;
+    --industrial: 216 12% 12%;
+    --industrial-foreground: 220 9% 96%;
     
-    --energy: 25 100% 50%;
-    --energy-foreground: 0 0% 100%;
+    --steel: 217 7% 57%;
+    --steel-foreground: 220 9% 96%;
+    
+    --energy: 22 100% 38%;
+    --energy-foreground: 220 9% 96%;
 
-    --text-secondary: 0 0% 72%;
+    --text-secondary: 217 7% 57%;
   }
 
   .dark {
-    /* Dark mode usa Preto Grafite #0D0D0D como base */
-    --background: 0 0% 5.1%;
-    --foreground: 0 0% 100%;
+    /* Dark mode - Identidade Industrial Maule */
+    /* Preto Profundo Técnico #0E0E10 como base */
+    --background: 240 4% 6%;
+    --foreground: 220 9% 96%;
 
-    --card: 205 100% 10.6%;
-    --card-foreground: 0 0% 100%;
+    /* Cards em Grafite Industrial #1C1F24 */
+    --card: 216 12% 12%;
+    --card-foreground: 220 9% 96%;
 
-    --popover: 0 0% 5.1%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 240 4% 6%;
+    --popover-foreground: 220 9% 96%;
 
-    --primary: 205 100% 40%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary: Grafite Industrial */
+    --primary: 216 12% 12%;
+    --primary-foreground: 220 9% 96%;
 
-    --secondary: 205 100% 10.6%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary: Preto Profundo */
+    --secondary: 240 4% 6%;
+    --secondary-foreground: 220 9% 96%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 72%;
+    /* Muted com Cinza Aço Frio */
+    --muted: 216 10% 18%;
+    --muted-foreground: 217 7% 57%;
 
-    --accent: 176 100% 38.8%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent: Laranja Aço Aquecido #C44900 */
+    --accent: 22 100% 38%;
+    --accent-foreground: 220 9% 96%;
 
-    --destructive: 25 100% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 22 100% 38%;
+    --destructive-foreground: 220 9% 96%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 176 100% 38.8%;
+    --border: 216 10% 20%;
+    --input: 216 10% 20%;
+    --ring: 22 100% 38%;
 
-    --graphite: 0 0% 5.1%;
-    --graphite-foreground: 0 0% 100%;
+    /* Custom Maule Industrial Colors */
+    --graphite: 240 4% 6%;
+    --graphite-foreground: 220 9% 96%;
     
-    --turquoise: 176 100% 38.8%;
-    --turquoise-foreground: 0 0% 5.1%;
+    --industrial: 216 12% 12%;
+    --industrial-foreground: 220 9% 96%;
     
-    --energy: 25 100% 50%;
-    --energy-foreground: 0 0% 100%;
+    --steel: 217 7% 57%;
+    --steel-foreground: 220 9% 96%;
+    
+    --energy: 22 100% 38%;
+    --energy-foreground: 220 9% 96%;
 
-    --text-secondary: 0 0% 72%;
+    --text-secondary: 217 7% 57%;
   }
 }
 
@@ -113,7 +127,7 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 
-  /* Maule Typography System */
+  /* Maule Typography System - Industrial */
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
@@ -148,22 +162,22 @@ All colors MUST be HSL.
 
   /* Text outline effect for hero */
   .text-outline {
-    -webkit-text-stroke: 2px hsl(var(--primary));
+    -webkit-text-stroke: 2px hsl(var(--accent));
     -webkit-text-fill-color: transparent;
   }
 
-  /* Glow effect for hover states */
+  /* Glow effect for hover states - agora em laranja */
   .glow-effect {
     transition: all 0.3s ease-in-out;
   }
 
   .glow-effect:hover {
-    box-shadow: 0 0 20px hsl(var(--accent) / 0.5);
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
   }
 
-  /* Gradient overlays */
+  /* Gradient overlays - industrial escuro */
   .gradient-overlay {
-    background: linear-gradient(180deg, hsl(var(--graphite) / 0.6) 0%, hsl(var(--secondary)) 100%);
+    background: linear-gradient(180deg, hsl(var(--graphite) / 0.7) 0%, hsl(var(--graphite)) 100%);
   }
 
   /* Scroll reveal animation */
