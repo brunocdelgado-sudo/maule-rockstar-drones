@@ -1,4 +1,4 @@
-import { Award, Briefcase, GraduationCap, Target, TrendingUp, Users } from "lucide-react";
+import { Award, Briefcase, Target, TrendingUp, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import augustoMaulePhoto from "@/assets/augusto-maule.jpg";
 
@@ -50,16 +50,16 @@ const timeline = [
 
 export const Curriculum = () => {
   return (
-    <section id="curriculo" className="py-24 bg-graphite">
+    <section id="curriculo" className="py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Header */}
           <div className="text-center space-y-4">
             <h2 className="text-foreground">Augusto Maule</h2>
             <p className="text-xl text-accent font-semibold">
-              O Rockstar dos Drones | Fundador da Metodologia Maule
+              Fundador da Metodologia Maule | Formação Técnica em Drones
             </p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-steel max-w-3xl mx-auto">
               De instrutor estrela da maior escola de drones do Brasil a criador de sua própria metodologia. 
               Augusto Maule é referência nacional em formação de pilotos profissionais.
             </p>
@@ -70,12 +70,12 @@ export const Curriculum = () => {
             {achievements.map((achievement, index) => (
               <Card 
                 key={index}
-                className="bg-secondary border-border hover:border-accent transition-all duration-300"
+                className="bg-industrial border-border hover:border-accent transition-all duration-300"
               >
                 <CardContent className="p-6 text-center space-y-2">
                   <achievement.icon className="w-10 h-10 text-accent mx-auto" />
                   <div className="text-3xl font-black text-foreground">{achievement.number}</div>
-                  <div className="text-sm text-muted-foreground">{achievement.label}</div>
+                  <div className="text-sm text-steel">{achievement.label}</div>
                 </CardContent>
               </Card>
             ))}
@@ -83,7 +83,7 @@ export const Curriculum = () => {
 
           {/* Biography Section */}
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Left Column - Image Placeholder & Key Points */}
+            {/* Left Column - Image & Key Points */}
             <div className="space-y-6">
               <div className="aspect-[3/4] rounded-2xl border border-border overflow-hidden">
                 <img 
@@ -93,13 +93,13 @@ export const Curriculum = () => {
                 />
               </div>
 
-              <Card className="bg-secondary border-primary/20">
+              <Card className="bg-industrial border-accent/20">
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-start gap-3">
                     <Target className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="text-foreground mb-1">Missão</h4>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-steel">
                         Formar pilotos de drone de verdade, desmistificando as mentiras do mercado e 
                         ensinando com base na experiência real de quem vive o que ensina.
                       </p>
@@ -116,11 +116,11 @@ export const Curriculum = () => {
               <div className="space-y-6">
                 {timeline.map((item, index) => (
                   <div key={index} className="relative pl-8 pb-8 border-l-2 border-accent/30 last:pb-0">
-                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent border-4 border-secondary" />
+                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent border-4 border-industrial" />
                     <div className="space-y-2">
                       <div className="text-accent font-semibold text-sm">{item.year}</div>
                       <h4 className="text-foreground">{item.title}</h4>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                      <p className="text-steel text-sm leading-relaxed">
                         {item.description}
                       </p>
                     </div>
@@ -129,7 +129,7 @@ export const Curriculum = () => {
               </div>
 
               {/* Specializations */}
-              <Card className="bg-secondary border-border">
+              <Card className="bg-industrial border-border">
                 <CardContent className="p-6 space-y-3">
                   <h4 className="text-foreground flex items-center gap-2">
                     <Award className="w-5 h-5 text-accent" />
@@ -160,7 +160,7 @@ export const Curriculum = () => {
           </div>
 
           {/* Quote */}
-          <Card className="bg-secondary/30 border-border/50">
+          <Card className="bg-industrial/50 border-border/50">
             <CardContent className="p-8 md:p-12 text-center">
               <blockquote className="space-y-4">
                 <p className="text-xl md:text-2xl text-foreground font-medium italic">

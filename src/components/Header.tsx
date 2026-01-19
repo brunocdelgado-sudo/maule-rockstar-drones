@@ -40,7 +40,7 @@ export const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-graphite/80 backdrop-blur-lg border-b border-border/20"
+          ? "bg-graphite/95 backdrop-blur-lg border-b border-border/20"
           : "bg-transparent"
       }`}
     >
@@ -49,7 +49,7 @@ export const Header = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="text-2xl md:text-3xl font-heading font-black tracking-wider text-primary hover:text-accent transition-colors"
+            className="text-2xl md:text-3xl font-heading font-black tracking-wider text-foreground hover:text-accent transition-colors"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             MAULE
@@ -61,7 +61,7 @@ export const Header = () => {
               <button
                 key={link.label}
                 onClick={link.action}
-                className="text-sm font-medium text-foreground hover:text-accent transition-colors relative group"
+                className="text-sm font-medium text-steel hover:text-foreground transition-colors relative group"
               >
                 {link.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
@@ -88,12 +88,12 @@ export const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden py-6 space-y-4 border-t border-border/20 animate-fade-in">
+          <nav className="md:hidden py-6 space-y-4 border-t border-border/20 animate-fade-in bg-graphite/95">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={link.action}
-                className="block w-full text-left text-foreground hover:text-accent transition-colors py-2"
+                className="block w-full text-left text-steel hover:text-foreground transition-colors py-2"
               >
                 {link.label}
               </button>

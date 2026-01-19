@@ -26,7 +26,7 @@ const OperacoesIntermediario = () => {
               {course.level}
             </span>
             <h1 className="text-foreground">{course.title}</h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-steel max-w-2xl mx-auto">
               {course.shortDescription}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
@@ -53,11 +53,11 @@ const OperacoesIntermediario = () => {
       </section>
 
       {/* Full Description */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-graphite">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-foreground mb-6">Sobre o Curso</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-steel leading-relaxed">
               {course.fullDescription}
             </p>
           </div>
@@ -65,7 +65,7 @@ const OperacoesIntermediario = () => {
       </section>
 
       {/* Target Audience */}
-      <section className="py-16 bg-secondary">
+      <section className="py-16 bg-industrial">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-foreground mb-8 flex items-center gap-2">
@@ -87,7 +87,7 @@ const OperacoesIntermediario = () => {
       </section>
 
       {/* Course Modules */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-graphite">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-foreground mb-8">Conteúdo Programático</h3>
@@ -97,10 +97,10 @@ const OperacoesIntermediario = () => {
                   <AccordionTrigger className="px-6 py-4 bg-secondary hover:bg-secondary/80 text-foreground font-semibold">
                     {module.title}
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 py-4 bg-graphite">
+                  <AccordionContent className="px-6 py-4 bg-secondary">
                     <ul className="space-y-2">
                       {module.topics.map((topic, topicIndex) => (
-                        <li key={topicIndex} className="flex items-start gap-2 text-muted-foreground">
+                        <li key={topicIndex} className="flex items-start gap-2 text-steel">
                           <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
                           <span>{topic}</span>
                         </li>
@@ -115,7 +115,7 @@ const OperacoesIntermediario = () => {
       </section>
 
       {/* Skills & Prerequisites */}
-      <section className="py-16 bg-secondary">
+      <section className="py-16 bg-industrial">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
             {/* Skills */}
@@ -129,7 +129,7 @@ const OperacoesIntermediario = () => {
               <CardContent>
                 <ul className="space-y-3">
                   {course.skills.map((skill, index) => (
-                    <li key={index} className="flex items-start gap-2 text-muted-foreground">
+                    <li key={index} className="flex items-start gap-2 text-steel">
                       <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <span>{skill}</span>
                     </li>
@@ -149,7 +149,7 @@ const OperacoesIntermediario = () => {
               <CardContent>
                 <ul className="space-y-3">
                   {course.prerequisites.map((prereq, index) => (
-                    <li key={index} className="flex items-start gap-2 text-muted-foreground">
+                    <li key={index} className="flex items-start gap-2 text-steel">
                       <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <span>{prereq}</span>
                     </li>
@@ -162,7 +162,7 @@ const OperacoesIntermediario = () => {
       </section>
 
       {/* Differentials */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-graphite">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-foreground mb-8 text-center">Diferenciais da Metodologia Maule</h3>
@@ -183,22 +183,22 @@ const OperacoesIntermediario = () => {
       </section>
 
       {/* Certification */}
-      <section className="py-16 bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20">
+      <section className="py-16 bg-industrial">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <Award className="w-16 h-16 text-accent mx-auto" />
             <h3 className="text-foreground">Certificação</h3>
-            <p className="text-lg text-muted-foreground">{course.certification}</p>
+            <p className="text-lg text-steel">{course.certification}</p>
           </div>
         </div>
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-graphite">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-foreground">Pronto Para Começar?</h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-steel">
               Entre em contato e garanta sua vaga na próxima turma.
             </p>
             <Button variant="cta" size="xl" onClick={scrollToContact}>
