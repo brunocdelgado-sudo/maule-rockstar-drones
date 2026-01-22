@@ -1,13 +1,8 @@
-import { Award, Briefcase, Target, TrendingUp, Users } from "lucide-react";
+import { Award, Target, TrendingUp, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import augustoMaulePhoto from "@/assets/augusto-maule.jpg";
 
 const achievements = [
-  {
-    icon: Briefcase,
-    number: "10+",
-    label: "Anos de Experiência",
-  },
   {
     icon: Users,
     number: "500+",
@@ -25,29 +20,6 @@ const achievements = [
   },
 ];
 
-const timeline = [
-  {
-    year: "2023-2024",
-    title: "Fundação da Metodologia Maule",
-    description: "Criação da própria metodologia de ensino, focada em formação prática e completa de pilotos profissionais.",
-  },
-  {
-    year: "2018-2023",
-    title: "Instrutor Estrela - DroneVisual",
-    description: "Instrutor principal da maior escola de drones do Brasil, responsável por formar centenas de pilotos em todo o país.",
-  },
-  {
-    year: "2015-2018",
-    title: "Especialização em Múltiplas Áreas",
-    description: "Desenvolvimento de expertise em operações agrícolas, inspeções industriais, mapeamento e segurança.",
-  },
-  {
-    year: "2013-2015",
-    title: "Início na Aviação com Drones",
-    description: "Transição de carreira e primeiras certificações profissionais em operação de aeronaves remotamente pilotadas.",
-  },
-];
-
 export const Curriculum = () => {
   return (
     <section id="curriculo" className="py-24 bg-secondary">
@@ -60,13 +32,13 @@ export const Curriculum = () => {
               Fundador da Metodologia Maule | Formação Técnica em Drones
             </p>
             <p className="text-lg text-steel max-w-3xl mx-auto">
-              De instrutor estrela da maior escola de drones do Brasil a criador de sua própria metodologia. 
-              Augusto Maule é referência nacional em formação de pilotos profissionais.
+              Criador da Metodologia Maule, uma abordagem prática e técnica para formação de pilotos profissionais de drones. 
+              Augusto é referência nacional em ensino de operação de aeronaves remotamente pilotadas.
             </p>
           </div>
 
           {/* Achievements Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-3 gap-6">
             {achievements.map((achievement, index) => (
               <Card 
                 key={index}
@@ -109,23 +81,29 @@ export const Curriculum = () => {
               </Card>
             </div>
 
-            {/* Right Column - Timeline */}
+            {/* Right Column - Biography Text */}
             <div className="space-y-6">
-              <h3 className="text-foreground">Trajetória Profissional</h3>
+              <h3 className="text-foreground">Quem é Augusto Maule</h3>
               
-              <div className="space-y-6">
-                {timeline.map((item, index) => (
-                  <div key={index} className="relative pl-8 pb-8 border-l-2 border-steel/50 last:pb-0">
-                    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-foreground border-4 border-industrial" />
-                    <div className="space-y-2">
-                      <div className="text-steel font-semibold text-sm">{item.year}</div>
-                      <h4 className="text-foreground">{item.title}</h4>
-                      <p className="text-steel text-sm leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+              <div className="space-y-4 text-steel leading-relaxed">
+                <p>
+                  Augusto Maule começou sua trajetória no mundo dos drones após uma decisão corajosa de 
+                  transição de carreira. Com formação técnica sólida e experiência prática em diversas 
+                  áreas — agricultura de precisão, segurança, inspeções industriais e mapeamento — 
+                  desenvolveu uma visão única sobre o que realmente forma um piloto profissional.
+                </p>
+                <p>
+                  Cansado de ver o mercado repleto de promessas vazias e cursos superficiais, decidiu 
+                  criar a Metodologia Maule: uma abordagem que prioriza a prática intensiva, turmas 
+                  reduzidas e formação técnica de verdade. Não é sobre papel na parede. É sobre 
+                  competência real.
+                </p>
+                <p>
+                  Hoje, Augusto dedica-se exclusivamente à formação de novos pilotos profissionais, 
+                  compartilhando todo o conhecimento adquirido em campo. Sua metodologia já formou 
+                  centenas de alunos que atuam em todo o Brasil, em áreas como AGRO, segurança, 
+                  topografia e inspeções industriais.
+                </p>
               </div>
 
               {/* Specializations */}
