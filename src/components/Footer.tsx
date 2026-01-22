@@ -1,4 +1,5 @@
 import { Instagram, Youtube, Linkedin, Mail } from "lucide-react";
+import logoMaule from "@/assets/logo-maule.png";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,7 +10,11 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-heading font-bold text-foreground">MAULE</h3>
+            <img 
+              src={logoMaule} 
+              alt="Metodologia Maule - Formação Técnica em Drones" 
+              className="h-14 w-auto"
+            />
             <p className="text-steel">
               O instrutor que forma pilotos de drone de verdade.
             </p>
