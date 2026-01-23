@@ -16,10 +16,10 @@ const Index = () => {
       <section id="metodologia">
         <About />
       </section>
-      <Curriculum />
       <section id="cursos">
         <Courses />
       </section>
+      <Curriculum />
       <section id="contato">
         <CTA />
       </section>

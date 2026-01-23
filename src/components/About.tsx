@@ -12,11 +12,6 @@ const stats = [
     label: "Especializações",
   },
   {
-    icon: Award,
-    value: "10+",
-    label: "Anos de Experiência",
-  },
-  {
     icon: Target,
     value: "100%",
     label: "Foco em Resultados",
@@ -31,13 +26,11 @@ export const About = () => {
           <div className="space-y-4">
             <h2 className="text-foreground">Metodologia Maule</h2>
             <p className="text-xl text-steel leading-relaxed">
-              Augusto Maule é reconhecido como um dos maiores especialistas em operação de drones do Brasil. 
-              Ex-instrutor estrela da maior escola de drones do país, agora ensina sua metodologia única que 
-              forma pilotos de verdade.
+              Seja Bem Vindo a Uma Nova Era Da Sua Vida
             </p>
           </div>
           
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-3 gap-8">
             {stats.map((stat, index) => (
               <div 
                 key={index}

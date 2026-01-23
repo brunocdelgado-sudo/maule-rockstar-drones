@@ -64,17 +64,14 @@ export const Courses = () => {
             </div>
           </div>
 
-          {/* NÍVEL 2 - CORE TÉCNICO */}
+          {/* NÍVEL 2 - MAPEAMENTO */}
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <span className="text-xs font-bold text-foreground bg-industrial px-3 py-1 rounded-full border border-foreground/30">
                 NÍVEL 2
               </span>
-              <h3 className="text-2xl font-bold text-foreground">Core Técnico</h3>
+              <h3 className="text-2xl font-bold text-foreground">Mapeamento</h3>
             </div>
-            <p className="text-steel max-w-2xl">
-              O curso estruturante. Sem aerofotogrametria, não existe especialização.
-            </p>
             <div className="grid md:grid-cols-1 lg:grid-cols-1 max-w-2xl">
               {coreCourses.map((course, index) => (
                 <Card 
