@@ -1,7 +1,7 @@
 import { 
   Plane, 
   Target,
-  Sprout, 
+   
   Map,
   Scan,
   Shield,
@@ -23,7 +23,7 @@ export interface CourseData {
   icon: LucideIcon;
   title: string;
   shortDescription: string;
-  level: "Operação" | "Core Técnico" | "Especialização" | "Mentoria";
+  level: "Operação" | "Mapeamento" | "Especialização" | "Mentoria";
   tier: 1 | 2 | 3 | 4;
   duration: string;
   format: string;
@@ -45,10 +45,10 @@ export const coursesData: CourseData[] = [
     slug: "operacoes-intermediario",
     icon: Plane,
     title: "Operações Intermediário",
-    shortDescription: "2 dias intensivos. Turmas de 4-8 alunos. Um dia inteiro dedicado exclusivamente à prática.",
+    shortDescription: "Versão Tradicional e Flash. 1 a 2 dias intensivos. Turmas Pequenas. Saia Voando, mesmo que você nunca tenha voado.",
     level: "Operação",
     tier: 1,
-    duration: "2 dias intensivos",
+    duration: "1-2 dias intensivos",
     format: "Presencial • Turmas 4-8 alunos",
     fullDescription: "A Metodologia Maule não forma curiosos. Forma profissionais que querem dominar o jogo. Este curso é estruturado para quem quer sair operando de verdade — com segurança, técnica e autonomia. Dois dias intensivos: o primeiro focado em sistemas, configurações e operação; o segundo, um dia inteiro dedicado exclusivamente à prática de voo.",
     antiPromises: [
@@ -107,10 +107,10 @@ export const coursesData: CourseData[] = [
     slug: "operacoes-profissional",
     icon: Target,
     title: "Operações Profissional",
-    shortDescription: "3 dias intensivos. Inclui 100% do Intermediário + dia extra de formação teórica profunda.",
+    shortDescription: "Versão Tradicional e Flash. 1 a 3 dias. Inclui 100% o Intermediário + formação técnica aprofundada.",
     level: "Operação",
     tier: 1,
-    duration: "3 dias intensivos",
+    duration: "1-3 dias intensivos",
     format: "Presencial • Turmas 4-8 alunos",
     fullDescription: "A formação completa para quem não quer atalhos. Três dias que condensam tudo o que você precisa para operar profissionalmente: história, componentes, aerodinâmica, legislação, sistemas e um dia inteiro de prática. Quem sai daqui não é mais um no mercado — é um operador de elite.",
     antiPromises: [
@@ -177,12 +177,12 @@ export const coursesData: CourseData[] = [
 
   // ========== NÍVEL 2 - CORE TÉCNICO ==========
   {
-    id: "aerofotogrametria",
-    slug: "aerofotogrametria",
+    id: "mapeamento",
+    slug: "mapeamento",
     icon: Map,
-    title: "Aerofotogrametria e Sensoriamento Remoto",
-    shortDescription: "O curso estruturante. Portal de entrada para todas as especializações técnicas.",
-    level: "Core Técnico",
+    title: "Mapeamento",
+    shortDescription: "Aerofotogrametria + Topografia + Processamento de Dados",
+    level: "Mapeamento" as CourseData["level"],
     tier: 2,
     duration: "2 dias intensivos",
     format: "Presencial • Turmas 4-8 alunos",
@@ -298,65 +298,6 @@ export const coursesData: CourseData[] = [
       "Finalização em QGIS inclusa",
       "Cases de engenharia e mineração",
       "Produtos prontos para uso comercial"
-    ]
-  },
-  {
-    id: "agricultura-precisao",
-    slug: "agricultura-precisao",
-    icon: Sprout,
-    title: "Agricultura de Precisão",
-    shortDescription: "Mapeamentos voltados ao agro + processamento + apoio à tomada de decisão agronômica.",
-    level: "Especialização",
-    tier: 3,
-    duration: "2 dias intensivos",
-    format: "Presencial • Turmas 4-8 alunos",
-    fullDescription: "A especialização para o agronegócio. Aqui você aprende a fazer mapeamentos que geram valor real para produtores: análise de saúde de plantações, identificação de problemas, geração de mapas de prescrição e apoio à tomada de decisão agronômica. Não é só foto aérea — é inteligência para o campo.",
-    antiPromises: [
-      "Não é curso de foto bonita de fazenda",
-      "Não ensinamos a vender para agricultor sem entregar valor",
-      "Quem sai daqui entende de agro, não só de drone"
-    ],
-    targetAudience: [
-      "Agrônomos e técnicos agrícolas",
-      "Operadores querendo atuar no agronegócio",
-      "Produtores rurais que querem usar drones na propriedade"
-    ],
-    modules: [
-      {
-        title: "Módulo 1 - Fundamentos da Agricultura de Precisão",
-        topics: [
-          "Conceitos de agricultura 4.0",
-          "Índices de vegetação (NDVI, NDRE, GNDVI)",
-          "Interpretação de saúde das plantas",
-          "Sensores multispectrais e térmicos"
-        ]
-      },
-      {
-        title: "Módulo 2 - Mapeamento e Decisão",
-        topics: [
-          "Planejamento de missões agrícolas",
-          "Processamento de imagens multispectrais",
-          "Geração de mapas de prescrição",
-          "Relatórios para tomada de decisão"
-        ]
-      }
-    ],
-    skills: [
-      "Mapeamentos agrícolas profissionais",
-      "Análise de índices de vegetação",
-      "Geração de mapas de prescrição",
-      "Apoio à decisão agronômica"
-    ],
-    prerequisites: [
-      "Curso de Aerofotogrametria (obrigatório)",
-      "Conhecimento básico de agronomia (desejável)"
-    ],
-    certification: "Certificado de Especialização em Agricultura de Precisão — código rastreável.",
-    differentials: [
-      "Foco em valor para o produtor",
-      "Cases reais do agronegócio brasileiro",
-      "Entrega de produtos práticos",
-      "Metodologia validada no campo"
     ]
   },
   {

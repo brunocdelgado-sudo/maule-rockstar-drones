@@ -1,24 +1,6 @@
-import { Award, Target, TrendingUp, Users } from "lucide-react";
+import { Award, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import augustoMaulePhoto from "@/assets/augusto-maule.jpg";
-
-const achievements = [
-  {
-    icon: Users,
-    number: "500+",
-    label: "Alunos Formados",
-  },
-  {
-    icon: Award,
-    number: "50+",
-    label: "Certificações",
-  },
-  {
-    icon: TrendingUp,
-    number: "98%",
-    label: "Taxa de Aprovação",
-  },
-];
 
 export const Curriculum = () => {
   return (
@@ -28,29 +10,9 @@ export const Curriculum = () => {
           {/* Header */}
           <div className="text-center space-y-4">
             <h2 className="text-foreground">Augusto Maule</h2>
-            <p className="text-xl text-foreground font-semibold">
-              Fundador da Metodologia Maule | Formação Técnica em Drones
-            </p>
             <p className="text-lg text-steel max-w-3xl mx-auto">
-              Criador da Metodologia Maule, uma abordagem prática e técnica para formação de pilotos profissionais de drones. 
-              Augusto é referência nacional em ensino de operação de aeronaves remotamente pilotadas.
+              Aqui você aprende com o melhor instrutor, os melhores equipamentos, e com turmas reduzidas.
             </p>
-          </div>
-
-          {/* Achievements Grid */}
-          <div className="grid grid-cols-3 gap-6">
-            {achievements.map((achievement, index) => (
-              <Card 
-                key={index}
-                className="bg-industrial border-border hover:border-foreground/50 transition-all duration-300"
-              >
-                <CardContent className="p-6 text-center space-y-2">
-                  <achievement.icon className="w-10 h-10 text-foreground mx-auto" />
-                  <div className="text-3xl font-black text-foreground">{achievement.number}</div>
-                  <div className="text-sm text-steel">{achievement.label}</div>
-                </CardContent>
-              </Card>
-            ))}
           </div>
 
           {/* Biography Section */}
