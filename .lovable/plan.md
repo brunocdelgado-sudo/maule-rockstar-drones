@@ -1,131 +1,85 @@
 
 
-## Plano: Adicionar Links nos Botões de CTA
+## Plano: Alterar Botão "Fale Conosco" para WhatsApp
 
-### Visão Geral
+### Problema Identificado
 
-Vamos adicionar o link do WhatsApp nos botões de conversão e fazer o botão "Conheça os Cursos" rolar para a seção de cursos.
-
-**Link do WhatsApp:** `https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0`
+O botão "Fale Conosco" no header (desktop e mobile) está configurado para rolar até a seção de contato (`scrollToSection("contato")`), mas deve abrir o WhatsApp diretamente.
 
 ---
 
-### Botões a Modificar
+### Arquivo a Modificar
 
-| Botão | Localização | Ação |
-|-------|-------------|------|
-| "Inscreva-se na Próxima Turma" | Hero.tsx | Abrir WhatsApp |
-| "Conheça os Cursos" | Hero.tsx | Scroll para #cursos |
-| "Fale com um Especialista" | Courses.tsx | Abrir WhatsApp |
-| "Inscreva-se Agora" | CoursePage.tsx | Abrir WhatsApp |
-| "Fale com um Especialista" | CoursePage.tsx | Abrir WhatsApp |
+**`src/components/Header.tsx`**
 
 ---
 
-### 1. Arquivo: `src/components/Hero.tsx`
+### Alterações
 
-**Alterações:**
+#### 1. Botão Desktop (linha 75-81)
 
-**Botão "Inscreva-se na Próxima Turma"** (linha 39-42):
-- Transformar em link que abre o WhatsApp em nova aba
-
-**Botão "Conheça os Cursos"** (linha 43-45):
-- Adicionar onClick para scroll suave até a seção `#cursos`
-
+**Antes:**
 ```tsx
-<div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-  <a 
-    href="https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Button variant="cta" size="xl" className="group">
-      Inscreva-se na Próxima Turma
-      <ArrowRight className="transition-transform group-hover:translate-x-1" />
-    </Button>
-  </a>
-  <Button 
-    variant="outlineLight" 
-    size="xl"
-    onClick={() => document.getElementById('cursos')?.scrollIntoView({ behavior: 'smooth' })}
-  >
-    Conheça os Cursos
-  </Button>
-</div>
+<Button 
+  variant="cta" 
+  size="sm"
+  onClick={() => scrollToSection("contato")}
+>
+  Fale Conosco
+</Button>
 ```
 
----
-
-### 2. Arquivo: `src/components/Courses.tsx`
-
-**Alterações:**
-
-**Botão "Fale com um Especialista"** (linha 194-196):
-- Envolver com tag `<a>` apontando para WhatsApp
-
+**Depois:**
 ```tsx
-<div className="text-center pt-8">
-  <a 
-    href="https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Button variant="cta" size="xl">
-      Fale com um Especialista
-    </Button>
-  </a>
-</div>
-```
-
----
-
-### 3. Arquivo: `src/pages/courses/CoursePage.tsx`
-
-**Alterações:**
-
-Definir constante do WhatsApp no início do componente:
-```tsx
-const whatsappLink = "https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0";
-```
-
-**Botão "Inscreva-se Agora"** (linha 52-56):
-- Mudar onClick para abrir WhatsApp
-
-**Botão "Fale com um Especialista"** (linha 226-228):
-- Mudar onClick para abrir WhatsApp
-
-```tsx
-// Linha 52-56: Inscreva-se Agora
-<div className="pt-6">
-  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-    <Button variant="cta" size="xl">
-      Inscreva-se Agora
-    </Button>
-  </a>
-</div>
-
-// Linha 226-228: Fale com um Especialista
-<a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-  <Button variant="cta" size="xl">
-    Fale com um Especialista
+<a 
+  href="https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button variant="cta" size="sm">
+    Fale Conosco
   </Button>
 </a>
 ```
 
 ---
 
-### Arquivos a Modificar
+#### 2. Botão Mobile (linha 105-116)
 
-| Arquivo | Alterações |
-|---------|------------|
-| `src/components/Hero.tsx` | Adicionar link WhatsApp no botão CTA + scroll no botão secundário |
-| `src/components/Courses.tsx` | Adicionar link WhatsApp no botão "Fale com um Especialista" |
-| `src/pages/courses/CoursePage.tsx` | Adicionar link WhatsApp nos 2 botões CTA |
+**Antes:**
+```tsx
+<Button 
+  variant="cta" 
+  className="w-full"
+  onClick={() => {
+    scrollToSection("contato");
+    setIsMobileMenuOpen(false);
+  }}
+>
+  Fale Conosco
+</Button>
+```
+
+**Depois:**
+```tsx
+<a 
+  href="https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0"
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() => setIsMobileMenuOpen(false)}
+>
+  <Button variant="cta" className="w-full">
+    Fale Conosco
+  </Button>
+</a>
+```
 
 ---
 
 ### Resultado Esperado
 
-- Ao clicar em **"Inscreva-se na Próxima Turma"**, **"Fale com um Especialista"** ou **"Inscreva-se Agora"**: Abre o WhatsApp com o número (19) 99929-1984
-- Ao clicar em **"Conheça os Cursos"**: Rola suavemente para a seção de cursos na página
+| Botão | Localização | Ação |
+|-------|-------------|------|
+| "Fale Conosco" | Header Desktop | Abre WhatsApp em nova aba |
+| "Fale Conosco" | Header Mobile | Abre WhatsApp + fecha menu mobile |
 
