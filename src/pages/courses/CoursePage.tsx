@@ -15,9 +15,7 @@ const CoursePage = () => {
     return <Navigate to="/404" replace />;
   }
 
-  const scrollToContact = () => {
-    window.location.href = "/#contato";
-  };
+  const whatsappLink = "https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0";
 
   return (
     <div className="min-h-screen">
@@ -50,9 +48,11 @@ const CoursePage = () => {
               </div>
             </div>
             <div className="pt-6">
-              <Button variant="cta" size="xl" onClick={scrollToContact}>
-                Inscreva-se Agora
-              </Button>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <Button variant="cta" size="xl">
+                  Inscreva-se Agora
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -223,9 +223,11 @@ const CoursePage = () => {
             <p className="text-xl text-steel">
               Quem entende, entra. Fale com a equipe e garanta sua vaga.
             </p>
-            <Button variant="cta" size="xl" onClick={scrollToContact}>
-              Fale com um Especialista
-            </Button>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+              <Button variant="cta" size="xl">
+                Fale com um Especialista
+              </Button>
+            </a>
           </div>
         </div>
       </section>

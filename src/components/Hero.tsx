@@ -36,11 +36,21 @@ export const Hero = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button variant="cta" size="xl" className="group">
-              Inscreva-se na Próxima Turma
-              <ArrowRight className="transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button variant="outlineLight" size="xl">
+            <a 
+              href="https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="cta" size="xl" className="group">
+                Inscreva-se na Próxima Turma
+                <ArrowRight className="transition-transform group-hover:translate-x-1" />
+              </Button>
+            </a>
+            <Button 
+              variant="outlineLight" 
+              size="xl"
+              onClick={() => document.getElementById('cursos')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Conheça os Cursos
             </Button>
           </div>
