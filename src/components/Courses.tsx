@@ -191,9 +191,15 @@ export const Courses = () => {
           </div>
           
           <div className="text-center pt-8">
-            <Button variant="cta" size="xl">
-              Fale com um Especialista
-            </Button>
+            <a 
+              href="https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="cta" size="xl">
+                Fale com um Especialista
+              </Button>
+            </a>
           </div>
         </div>
       </div>
