@@ -72,13 +72,15 @@ export const Header = () => {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
-            <Button 
-              variant="cta" 
-              size="sm"
-              onClick={() => scrollToSection("contato")}
+            <a 
+              href="https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Fale Conosco
-            </Button>
+              <Button variant="cta" size="sm">
+                Fale Conosco
+              </Button>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -103,16 +105,16 @@ export const Header = () => {
                 {link.label}
               </button>
             ))}
-            <Button 
-              variant="cta" 
-              className="w-full"
-              onClick={() => {
-                scrollToSection("contato");
-                setIsMobileMenuOpen(false);
-              }}
+            <a 
+              href="https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              Fale Conosco
-            </Button>
+              <Button variant="cta" className="w-full">
+                Fale Conosco
+              </Button>
+            </a>
           </nav>
         )}
       </div>
