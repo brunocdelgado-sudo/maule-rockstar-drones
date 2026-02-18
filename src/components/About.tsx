@@ -3,7 +3,7 @@ import { Award, Users, Briefcase, Target } from "lucide-react";
 const stats = [
   {
     icon: Users,
-    value: "500+",
+    value: "2000+",
     label: "Alunos Formados",
   },
   {

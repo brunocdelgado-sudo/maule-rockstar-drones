@@ -44,12 +44,12 @@ export const coursesData: CourseData[] = [
     id: "operacoes-intermediario",
     slug: "operacoes-intermediario",
     icon: Plane,
-    title: "Operações Intermediário",
+    title: "Pilotagem Intermediária",
     shortDescription: "Versão Tradicional e Flash. 1 a 2 dias intensivos. Turmas Pequenas. Saia Voando, mesmo que você nunca tenha voado.",
     level: "Operação",
     tier: 1,
     duration: "1-2 dias intensivos",
-    format: "Presencial • Turmas 4-8 alunos",
+    format: "Presencial • Turmas 4-6 alunos",
     fullDescription: "A Metodologia Maule não forma curiosos. Forma profissionais que querem dominar o jogo. Este curso é estruturado para quem quer sair operando de verdade — com segurança, técnica e autonomia. Dois dias intensivos: o primeiro focado em sistemas, configurações e operação; o segundo, um dia inteiro dedicado exclusivamente à prática de voo.",
     antiPromises: [
       "Não é curso básico. É formação de elite.",
@@ -96,9 +96,9 @@ export const coursesData: CourseData[] = [
     ],
     certification: "Certificado Metodologia Maule com código de rastreio único — verificável e reconhecido pelo mercado. Não é papel. É credencial rastreável.",
     differentials: [
-      "Turmas extremamente reduzidas (4-8 alunos)",
+      "Turmas extremamente reduzidas (4 a 6 alunos)",
       "Um dia inteiro dedicado exclusivamente à prática",
-      "Instrutor com mais de 8.000 alunos formados",
+      "Instrutor com mais de 2.000 alunos formados",
       "Metodologia desenvolvida por quem vive o que ensina"
     ]
   },
@@ -106,12 +106,12 @@ export const coursesData: CourseData[] = [
     id: "operacoes-profissional",
     slug: "operacoes-profissional",
     icon: Target,
-    title: "Operações Profissional",
+    title: "Pilotagem Profissional",
     shortDescription: "Versão Tradicional e Flash. 1 a 3 dias. Inclui 100% o Intermediário + formação técnica aprofundada.",
     level: "Operação",
     tier: 1,
     duration: "1-3 dias intensivos",
-    format: "Presencial • Turmas 4-8 alunos",
+    format: "Presencial • Turmas 4-6 alunos",
     fullDescription: "A formação completa para quem não quer atalhos. Três dias que condensam tudo o que você precisa para operar profissionalmente: história, componentes, aerodinâmica, legislação, sistemas e um dia inteiro de prática. Quem sai daqui não é mais um no mercado — é um operador de elite.",
     antiPromises: [
       "Não é curso para quem quer só um certificado",
@@ -171,7 +171,7 @@ export const coursesData: CourseData[] = [
       "Formação mais completa do mercado em 3 dias",
       "100% do curso Intermediário incluído",
       "Preparação para qualquer especialização",
-      "Metodologia de quem formou +8.000 alunos"
+      "Metodologia de quem formou +2.000 alunos"
     ]
   },
 
@@ -185,7 +185,7 @@ export const coursesData: CourseData[] = [
     level: "Mapeamento" as CourseData["level"],
     tier: 2,
     duration: "2 dias intensivos",
-    format: "Presencial • Turmas 4-8 alunos",
+    format: "Presencial • Turmas 4-6 alunos",
     fullDescription: "Este é o curso que abre as portas. A aerofotogrametria é a base técnica de todas as especializações que envolvem mapeamento, processamento e entrega de produtos. Aqui você aprende os fundamentos científicos, o planejamento, o voo e o processamento em softwares profissionais. Sem esse conhecimento, você não avança. Com ele, você domina qualquer especialização.",
     antiPromises: [
       "Não é curso introdutório. É formação estruturante.",
@@ -249,7 +249,7 @@ export const coursesData: CourseData[] = [
     level: "Especialização",
     tier: 3,
     duration: "2 dias intensivos",
-    format: "Presencial • Turmas 4-8 alunos",
+    format: "Presencial • Turmas 4-6 alunos",
     fullDescription: "A especialização para quem quer entregar produtos topográficos de verdade. Aqui você aprende os conceitos fundamentais de topografia, processamento em Metashape e Pix4D, e finalização em QGIS. Produtos prontos para engenharia, mineração e construção civil.",
     antiPromises: [
       "Não é curso de fotogrametria repetida. É topografia aplicada.",
@@ -309,7 +309,7 @@ export const coursesData: CourseData[] = [
     level: "Especialização",
     tier: 3,
     duration: "2 dias intensivos",
-    format: "Presencial • Turmas 4-8 alunos",
+    format: "Presencial • Turmas 4-6 alunos",
     fullDescription: "A especialização para quem quer atuar em inspeções de infraestrutura crítica. Torres de energia, telecomunicações, linhas de transmissão, painéis solares, edificações. Aqui você aprende a capturar, processar e entregar relatórios que empresas de verdade precisam.",
     antiPromises: [
       "Não é curso de fotografia aérea",
@@ -369,7 +369,7 @@ export const coursesData: CourseData[] = [
     level: "Especialização",
     tier: 3,
     duration: "2 dias intensivos",
-    format: "Presencial • Turmas 4-8 alunos",
+    format: "Presencial • Turmas 4-6 alunos",
     fullDescription: "O curso para quem quer entender LiDAR de verdade. Fundamentos da tecnologia, processamento de dados reais, aplicações práticas. Este não é um curso de operação de drone LiDAR — é um curso de entendimento e processamento de dados LiDAR para quem quer atuar nesse mercado de alto valor.",
     antiPromises: [
       "Não é curso de pilotagem de drone LiDAR",
@@ -429,7 +429,7 @@ export const coursesData: CourseData[] = [
     level: "Especialização",
     tier: 3,
     duration: "2 dias intensivos",
-    format: "Presencial • Turmas 4-8 alunos",
+    format: "Presencial • Turmas 4-6 alunos",
     fullDescription: "A especialização para quem quer usar o drone como ferramenta tática. Não é sobre voar — é sobre adquirir informações de valor, penetrar e ler territórios, apoiar tomada de decisão crítica. Para profissionais de segurança pública e privada que entendem que o drone é uma ferramenta de inteligência.",
     antiPromises: [
       "Não é curso de vigilância amadora",
@@ -491,7 +491,7 @@ export const coursesData: CourseData[] = [
     tier: 4,
     duration: "Programa personalizado",
     format: "Híbrido • Acompanhamento individual",
-    fullDescription: "A mentoria para quem quer se tornar instrutor de drones. Não basta saber operar — você precisa saber ensinar. Aqui você aprende metodologia de ensino, didática aplicada, posicionamento de mercado e como estruturar seus próprios cursos. Formação de instrutores por quem formou mais de 8.000 alunos.",
+    fullDescription: "A mentoria para quem quer se tornar instrutor de drones. Não basta saber operar — você precisa saber ensinar. Aqui você aprende metodologia de ensino, didática aplicada, posicionamento de mercado e como estruturar seus próprios cursos. Formação de instrutores por quem formou mais de 2.000 alunos.",
     antiPromises: [
       "Não é curso rápido de instrutor",
       "Não formamos quem não tem base sólida",
@@ -536,7 +536,7 @@ export const coursesData: CourseData[] = [
     certification: "Certificação como Instrutor Metodologia Maule — credencial de autoridade.",
     differentials: [
       "Acompanhamento individual",
-      "Metodologia validada em +8.000 alunos",
+      "Metodologia validada em +2.000 alunos",
       "Posicionamento de mercado incluso",
       "Rede de instrutores Maule"
     ]
