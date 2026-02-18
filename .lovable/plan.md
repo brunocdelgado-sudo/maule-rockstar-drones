@@ -1,85 +1,55 @@
 
 
-## Plano: Alterar Botão "Fale Conosco" para WhatsApp
-
-### Problema Identificado
-
-O botão "Fale Conosco" no header (desktop e mobile) está configurado para rolar até a seção de contato (`scrollToSection("contato")`), mas deve abrir o WhatsApp diretamente.
-
----
-
-### Arquivo a Modificar
-
-**`src/components/Header.tsx`**
-
----
+## Plano: Ajustes de Texto e Renomeação de Cursos
 
 ### Alterações
 
-#### 1. Botão Desktop (linha 75-81)
+---
 
-**Antes:**
-```tsx
-<Button 
-  variant="cta" 
-  size="sm"
-  onClick={() => scrollToSection("contato")}
->
-  Fale Conosco
-</Button>
-```
+### 1. `src/components/About.tsx` -- Atualizar estatística
 
-**Depois:**
-```tsx
-<a 
-  href="https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <Button variant="cta" size="sm">
-    Fale Conosco
-  </Button>
-</a>
-```
+- Linha 6: Trocar `"500+"` por `"2000+"`
 
 ---
 
-#### 2. Botão Mobile (linha 105-116)
+### 2. `src/components/Courses.tsx` -- Atualizar texto de turmas
 
-**Antes:**
-```tsx
-<Button 
-  variant="cta" 
-  className="w-full"
-  onClick={() => {
-    scrollToSection("contato");
-    setIsMobileMenuOpen(false);
-  }}
->
-  Fale Conosco
-</Button>
-```
-
-**Depois:**
-```tsx
-<a 
-  href="https://api.whatsapp.com/send/?phone=5519999291984&text&type=phone_number&app_absent=0"
-  target="_blank"
-  rel="noopener noreferrer"
-  onClick={() => setIsMobileMenuOpen(false)}
->
-  <Button variant="cta" className="w-full">
-    Fale Conosco
-  </Button>
-</a>
-```
+- Linha 33: Trocar `"Turmas de 4-8 alunos"` por `"Turmas de 4 a 6 alunos"`
 
 ---
 
-### Resultado Esperado
+### 3. `src/data/coursesData.ts` -- Múltiplas alterações
 
-| Botão | Localização | Ação |
-|-------|-------------|------|
-| "Fale Conosco" | Header Desktop | Abre WhatsApp em nova aba |
-| "Fale Conosco" | Header Mobile | Abre WhatsApp + fecha menu mobile |
+| Local | De | Para |
+|-------|-----|------|
+| Linha 47 | `"Operações Intermediário"` | `"Pilotagem Intermediária"` |
+| Linha 52 | `"Turmas 4-8 alunos"` | `"Turmas 4-6 alunos"` |
+| Linha 99 | `"(4-8 alunos)"` | `"(4 a 6 alunos)"` |
+| Linha 101 | `"8.000 alunos"` | `"2.000 alunos"` |
+| Linha 109 | `"Operações Profissional"` | `"Pilotagem Profissional"` |
+| Linha 114 | `"Turmas 4-8 alunos"` | `"Turmas 4-6 alunos"` |
+| Linha 174 | `"+8.000 alunos"` | `"+2.000 alunos"` |
+| Linha 188 | `"Turmas 4-8 alunos"` | `"Turmas 4-6 alunos"` |
+| Linha 252 | `"Turmas 4-8 alunos"` | `"Turmas 4-6 alunos"` |
+| Linha 312 | `"Turmas 4-8 alunos"` | `"Turmas 4-6 alunos"` |
+| Linha 372 | `"Turmas 4-8 alunos"` | `"Turmas 4-6 alunos"` |
+| Linha 432 | `"Turmas 4-8 alunos"` | `"Turmas 4-6 alunos"` |
+| Linha 493 | `"8.000 alunos"` | `"2.000 alunos"` |
+| Linha 539 | `"+8.000 alunos"` | `"+2.000 alunos"` |
+
+---
+
+### 4. `src/pages/courses/OperacoesIntermediario.tsx` -- Atualizar slug de busca
+
+- Linha 10: O slug `"operacoes-intermediario"` permanece igual (apenas o title muda no coursesData)
+
+---
+
+### Arquivos a Modificar
+
+| Arquivo | Alterações |
+|---------|------------|
+| `src/components/About.tsx` | 500+ para 2000+ |
+| `src/components/Courses.tsx` | 4-8 para 4 a 6 |
+| `src/data/coursesData.ts` | Renomear cursos, atualizar turmas e números de alunos |
 
