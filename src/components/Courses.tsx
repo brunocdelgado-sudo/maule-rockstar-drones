@@ -30,7 +30,7 @@ export const Courses = () => {
               <h3 className="text-2xl font-bold text-foreground">Formação Operacional</h3>
             </div>
             <p className="text-steel max-w-2xl">
-              A base de tudo. Sem isso, você não avança. Turmas de 4-8 alunos, prática intensiva.
+              A base de tudo. Sem isso, você não avança. Turmas de 4 a 6 alunos, prática intensiva.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               {operacaoCourses.map((course, index) => (
