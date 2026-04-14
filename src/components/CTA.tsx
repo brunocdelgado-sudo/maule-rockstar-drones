@@ -51,18 +51,18 @@ export const CTA = () => {
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
             <a 
-              href="mailto:contato@maule.com.br"
+              href="mailto:contato@metodologiamaule.com"
               className="flex items-center gap-2 text-foreground hover:text-foreground/80 transition-colors"
             >
               <Mail className="w-5 h-5" />
-              <span>contato@maule.com.br</span>
+              <span>contato@metodologiamaule.com</span>
             </a>
             <a 
-              href="tel:+5511999999999"
+              href="tel:+5519999291984"
               className="flex items-center gap-2 text-foreground hover:text-foreground/80 transition-colors"
             >
               <Phone className="w-5 h-5" />
-              <span>(11) 99999-9999</span>
+              <span>(19) 99929-1984</span>
             </a>
           </div>
         </div>
